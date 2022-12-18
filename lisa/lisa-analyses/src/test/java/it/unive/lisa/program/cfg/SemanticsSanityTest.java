@@ -29,6 +29,8 @@ import it.unive.lisa.analysis.nonrelational.value.ValueEnvironment;
 import it.unive.lisa.analysis.numeric.Sign;
 import it.unive.lisa.analysis.representation.DomainRepresentation;
 import it.unive.lisa.analysis.representation.StringRepresentation;
+import it.unive.lisa.analysis.string.stringgraph.StringGraph;
+import it.unive.lisa.analysis.string.stringgraph.StringGraphDomain;
 import it.unive.lisa.analysis.symbols.SymbolAliasing;
 import it.unive.lisa.analysis.types.InferredTypes;
 import it.unive.lisa.analysis.value.TypeDomain;
@@ -94,6 +96,8 @@ public class SemanticsSanityTest {
 	private ClassUnit unit;
 	private CFG cfg;
 	private CallGraph cg;
+	private StringGraph sg;
+	private StringGraphDomain sgd;
 	private InterproceduralAnalysis<
 			SimpleAbstractState<MonolithicHeap, ValueEnvironment<Sign>, TypeEnvironment<InferredTypes>>,
 			MonolithicHeap,
@@ -161,6 +165,8 @@ public class SemanticsSanityTest {
 								fake);
 			}
 		};
+		sg = new StringGraph(StringGraph.NodeType.OR, List.of(new StringGraph("good"), new StringGraph("bad")), null);
+		sgd = new StringGraphDomain(sg);
 	}
 
 	private Object valueFor(Class<?> param) {
@@ -206,6 +212,8 @@ public class SemanticsSanityTest {
 			return 0L;
 		if (param == double.class || param == Double.class)
 			return 0.1;
+		if (param == StringGraph.class)
+			return sg;
 
 		throw new UnsupportedOperationException("No default value for parameter of type " + param);
 	}
@@ -369,6 +377,8 @@ public class SemanticsSanityTest {
 			return new CFGWithAnalysisResults<>(cfg, as);
 		if (param == CFGResults.class)
 			return new CFGResults<>(new CFGWithAnalysisResults<>(cfg, as));
+		if (param == StringGraph.class)
+			return sg;
 
 		throw new UnsupportedOperationException(
 				"No default domain for domain " + root + " and parameter of type " + param);

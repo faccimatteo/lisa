@@ -146,7 +146,7 @@ public class EqualityContractVerificationTest {
 	private static final Set<Type> s2 = Collections.singleton(Int32Type.INSTANCE);
 
 	private static final Collection<Class<?>> tested = new HashSet<>();
-	private static final StringGraph sg1 = new StringGraph("abcdefg");
+	private static final StringGraph sg1 = new StringGraph(StringGraph.NodeType.OR, List.of(new StringGraph("good"), new StringGraph("bad")), null);
 	private static final StringGraph sg2 = new StringGraph(StringGraph.NodeType.OR, List.of(new StringGraph("good"), new StringGraph("bad")), null);
 	private static final StringGraphDomain sgd1 = new StringGraphDomain(sg1);
 	private static final StringGraphDomain sgd2 = new StringGraphDomain(sg2);

@@ -121,9 +121,10 @@ public class StringGraphDomain extends BaseNonRelationalValueDomain<StringGraphD
 
     @Override
     public boolean equals(Object obj) {
-
-        if (obj instanceof StringGraphDomain) return this.stringGraph.equals(((StringGraphDomain) obj).stringGraph);
-        return false;
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        StringGraphDomain other = (StringGraphDomain) obj;
+        return Objects.equals(this.stringGraph, other.getStringGraph());
     }
 
     @Override
@@ -158,5 +159,9 @@ public class StringGraphDomain extends BaseNonRelationalValueDomain<StringGraphD
         if (Objects.nonNull(this.stringGraph))
             return this.stringGraph.getLabel() == StringGraph.NodeType.EMPTY;
         return true;
+    }
+
+    public StringGraph getStringGraph() {
+        return stringGraph;
     }
 }
