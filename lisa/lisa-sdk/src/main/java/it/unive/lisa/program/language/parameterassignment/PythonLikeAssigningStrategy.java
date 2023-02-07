@@ -16,8 +16,9 @@ import it.unive.lisa.program.cfg.statement.call.NamedParameterExpression;
 import it.unive.lisa.program.language.resolution.PythonLikeMatchingStrategy;
 import it.unive.lisa.symbolic.SymbolicExpression;
 import it.unive.lisa.type.Type;
-import java.util.Set;
 import org.apache.commons.lang3.tuple.Pair;
+
+import java.util.Set;
 
 /**
  * A Python-like assigning strategy. Specifically:<br>

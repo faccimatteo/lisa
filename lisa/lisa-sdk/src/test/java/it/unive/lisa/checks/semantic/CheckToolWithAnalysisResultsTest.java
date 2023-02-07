@@ -1,36 +1,16 @@
 package it.unive.lisa.checks.semantic;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-
-import it.unive.lisa.LiSAConfiguration;
-import it.unive.lisa.TestAbstractState;
-import it.unive.lisa.TestHeapDomain;
-import it.unive.lisa.TestLanguageFeatures;
-import it.unive.lisa.TestTypeDomain;
-import it.unive.lisa.TestTypeSystem;
-import it.unive.lisa.TestValueDomain;
+import it.unive.lisa.*;
 import it.unive.lisa.analysis.AnalysisState;
 import it.unive.lisa.analysis.CFGWithAnalysisResults;
 import it.unive.lisa.analysis.lattices.ExpressionSet;
 import it.unive.lisa.analysis.symbols.SymbolAliasing;
 import it.unive.lisa.checks.syntactic.CheckTool;
-import it.unive.lisa.checks.warnings.CFGDescriptorWarning;
-import it.unive.lisa.checks.warnings.CFGWarning;
-import it.unive.lisa.checks.warnings.ExpressionWarning;
-import it.unive.lisa.checks.warnings.GlobalWarning;
-import it.unive.lisa.checks.warnings.StatementWarning;
-import it.unive.lisa.checks.warnings.UnitWarning;
-import it.unive.lisa.checks.warnings.Warning;
+import it.unive.lisa.checks.warnings.*;
 import it.unive.lisa.interprocedural.callgraph.CallGraph;
 import it.unive.lisa.interprocedural.callgraph.CallGraphConstructionException;
 import it.unive.lisa.interprocedural.callgraph.CallResolutionException;
-import it.unive.lisa.program.Application;
-import it.unive.lisa.program.ClassUnit;
-import it.unive.lisa.program.Global;
-import it.unive.lisa.program.Program;
-import it.unive.lisa.program.SourceCodeLocation;
-import it.unive.lisa.program.Unit;
+import it.unive.lisa.program.*;
 import it.unive.lisa.program.cfg.CFG;
 import it.unive.lisa.program.cfg.CodeMember;
 import it.unive.lisa.program.cfg.CodeMemberDescriptor;
@@ -43,13 +23,13 @@ import it.unive.lisa.program.cfg.statement.call.Call;
 import it.unive.lisa.program.cfg.statement.call.UnresolvedCall;
 import it.unive.lisa.type.Type;
 import it.unive.lisa.util.file.FileManager;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
 import org.apache.commons.collections4.CollectionUtils;
 import org.junit.Test;
+
+import java.util.*;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class CheckToolWithAnalysisResultsTest {
 

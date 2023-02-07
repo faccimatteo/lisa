@@ -1,6 +1,7 @@
 package it.unive.lisa.interprocedural;
 
 import it.unive.lisa.analysis.ScopeToken;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;

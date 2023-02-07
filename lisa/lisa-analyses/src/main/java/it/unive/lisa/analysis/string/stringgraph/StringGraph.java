@@ -7,24 +7,149 @@ import org.apache.commons.lang3.tuple.Pair;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.stream.Collectors;
+
 import static it.unive.lisa.analysis.SemanticDomain.Satisfiability.*;
 import static it.unive.lisa.analysis.string.stringgraph.StringGraph.NodeType.*;
 
 /**
- * The string graph domain
+ * The string graph domain.
  */
 public class StringGraph {
 
+    /**
+     * NodeType represents string graph basic unit.
+     */
     public enum NodeType {
+        /**
+         * Concat node.
+         */
         CONCAT,
+        /**
+         * Or node.
+         */
         OR,
+        /**
+         * Empty node.
+         */
         EMPTY,
+        /**
+         * Max node.
+         */
         MAX,
+        /**
+         * Simple node.
+         */
         SIMPLE
     }
 
+    /**
+     * CHARACTER represents possibile values of SIMPLE {@link NodeType}.
+     */
     public enum CHARACTER {
-        a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z
+        /**
+         * a char.
+         */
+        a,
+        /**
+         * b char.
+         */
+        b,
+        /**
+         * c char.
+         */
+        c,
+        /**
+         * d char.
+         */
+        d,
+        /**
+         * e char.
+         */
+        e,
+        /**
+         * f char.
+         */
+        f,
+        /**
+         * g char.
+         */
+        g,
+        /**
+         * h char.
+         */
+        h,
+        /**
+         * i char.
+         */
+        i,
+        /**
+         * j char.
+         */
+        j,
+        /**
+         * k char.
+         */
+        k,
+        /**
+         * l char.
+         */
+        l,
+        /**
+         * m char.
+         */
+        m,
+        /**
+         * n char.
+         */
+        n,
+        /**
+         * o char.
+         */
+        o,
+        /**
+         * p char.
+         */
+        p,
+        /**
+         * q char.
+         */
+        q,
+        /**
+         * r char.
+         */
+        r,
+        /**
+         * s char.
+         */
+        s,
+        /**
+         * t char.
+         */
+        t,
+        /**
+         * u char.
+         */
+        u,
+        /**
+         * v char.
+         */
+        v,
+        /**
+         * w char.
+         */
+        w,
+        /**
+         * x char.
+         */
+        x,
+        /**
+         * y char.
+         */
+        y,
+        /**
+         * z char.
+         */
+        z
     }
 
     private NodeType label;
@@ -34,6 +159,12 @@ public class StringGraph {
     private CHARACTER character;
     private Integer bound; // NEEDED FOR evalTernaryExpression() METHOD
 
+    /**
+     * Builds a {@link StringGraph} by specifying root node, (optional) subtrees and (optional) character.
+     * @param label represents root three.
+     * @param sons list of sons under the root label.
+     * @param character character assigned to a SIMPLE {@link NodeType}.
+     */
     public StringGraph(NodeType label, List<StringGraph> sons, CHARACTER character) {
         this.label = label;
         this.character = character;
@@ -71,6 +202,10 @@ public class StringGraph {
 
     }
 
+    /**
+     * Builds a {@link StringGraph} given a string.
+     * @param stringToRepresent string to represent in the string graph.
+     */
     public StringGraph(String stringToRepresent) {
         this.normalized = true;
         if (isStringInt(stringToRepresent)) {
@@ -95,6 +230,11 @@ public class StringGraph {
 
     }
 
+    /**
+     * Builds a {@link StringGraph} with just a label. <br/>
+     * This is used to represent a leaf.
+     * @param label {@link NodeType} label.
+     */
     public StringGraph(NodeType label) {
         assert(!(label == CONCAT));
         this.label = label;
@@ -213,45 +353,82 @@ public class StringGraph {
         this.fathers = new ArrayList<>();
     }
 
+    /**
+     * Get {@link StringGraph}'s label.
+     * @return node type label.
+     */
     public NodeType getLabel() {
         return label;
     }
 
+    /**
+     * Set {@link StringGraph}'s label.
+     * @param label {@link NodeType}'s label.
+     */
     public void setLabel(NodeType label) {
         this.label = label;
     }
 
+    /**
+     * Get {@link StringGraph}'s subtrees.
+     * @return list containing current string graph sons.
+     */
     public List<StringGraph> getSons() {
         return sons;
     }
 
+    /**
+     * Get {@link StringGraph} fathers.
+     * @return list containing current string graph fathers.
+     */
     public List<StringGraph> getFathers() {
         return fathers;
     }
 
+    /**
+     * Tells us if {@link StringGraph} is normalized.
+     * @return normalized/not normalized.
+     */
     public boolean isNormalized() {
         return normalized;
     }
 
+    /**
+     * Set {@link StringGraph} normalized value.
+     * @param normalized normalized/not normalized.
+     */
     public void setNormalized(boolean normalized) {
         this.normalized = normalized;
     }
 
+    /**
+     * If {@link StringGraph} is a SIMPLE {@link NodeType}, get {@link StringGraph}'s CHARACTER.
+     * @return {@link StringGraph}'s CHARACTER.
+     */
     public CHARACTER getCharacter() {
+        assert this.label == SIMPLE;
         return character;
     }
 
+    /**
+     * Get {@link StringGraph}'s bound.
+     * @return {@link StringGraph}'s CHARACTER.
+     */
     public Integer getBound() {
         return bound;
     }
 
+    /**
+     * Set {@link StringGraph}'s bound.
+     * @param bound {@link NodeType}'s bound.
+     */
     public void setBound(Integer bound) {
         this.bound = bound;
     }
 
     /**
      * Compact the string graph by applying the 8 rule defined in the article
-     * <i>"Deriving Descriptions of Possible Values of Program Variables by Means of Abstract Interpretation"</i>
+     * <i>"Deriving Descriptions of Possible Values of Program Variables by Means of Abstract Interpretation".</i>
      */
     protected void compact() {
         for (StringGraph s : this.getSons()){
@@ -349,7 +526,7 @@ public class StringGraph {
 
     /**
      * Normalize the string graph by applying the 4 rules defined in the article
-     * <i>"A Suite of Abstract Domains for Static Analysis of String Values"</i>
+     * <i>"A Suite of Abstract Domains for Static Analysis of String Values"</i>.
      */
     protected void normalize() {
 
@@ -627,7 +804,7 @@ public class StringGraph {
         }
         else if (second.getLabel() == OR) {
             boolean result = false;
-            List<StringGraph> labelEqualitySons = labelEqualitySet(second.getPrincipalNodes(), first);
+            Set<StringGraph> labelEqualitySons = labelEqualitySet(second.getPrincipalNodes(), first);
             if (labelEqualitySons.size() > 0) {
                 edges.add(Pair.of(first, second));
                 for (StringGraph s : labelEqualitySons) {
@@ -641,13 +818,13 @@ public class StringGraph {
     }
 
     /**
-     *
-     * @param stringGraphList collection of string graph to consider
-     * @param stringGraph string graph to compare1
-     * @return the list of string graphs belonging to {@code stringGraphList} which have the same label as {@code stringGraph}
+     * Produce label equality set given checking a string graph in a collection of string graph.
+     * @param stringGraphList collection of string graph to consider.
+     * @param stringGraph string graph to compare1.
+     * @return the set of string graphs belonging to {@code stringGraphList} which have the same label as {@param stringGraph}.
      */
-    public static List<StringGraph> labelEqualitySet(Collection<StringGraph> stringGraphList, StringGraph stringGraph) {
-        List<StringGraph> result = new ArrayList<>();
+    public static Set<StringGraph> labelEqualitySet(Collection<StringGraph> stringGraphList, StringGraph stringGraph) {
+        Set<StringGraph> result = new HashSet<>();
         for(StringGraph s : stringGraphList) {
             if (s.getLabel().equals(stringGraph.getLabel())) {
                 result.add(s);

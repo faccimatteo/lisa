@@ -1,12 +1,8 @@
 package it.unive.lisa.util.collections.externalSet;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.NoSuchElementException;
-import java.util.Set;
 import org.apache.commons.lang3.StringUtils;
+
+import java.util.*;
 
 /**
  * An {@link ExternalSet} where the indexes of the elements included in the set

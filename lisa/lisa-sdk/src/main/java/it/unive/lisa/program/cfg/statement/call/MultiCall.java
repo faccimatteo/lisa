@@ -18,6 +18,7 @@ import it.unive.lisa.program.cfg.statement.evaluation.LeftToRightEvaluation;
 import it.unive.lisa.symbolic.SymbolicExpression;
 import it.unive.lisa.type.Type;
 import it.unive.lisa.type.Untyped;
+
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;

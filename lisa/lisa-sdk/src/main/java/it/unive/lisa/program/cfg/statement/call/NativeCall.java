@@ -22,11 +22,12 @@ import it.unive.lisa.program.language.parameterassignment.ParameterAssigningStra
 import it.unive.lisa.symbolic.SymbolicExpression;
 import it.unive.lisa.type.Type;
 import it.unive.lisa.type.Untyped;
+import org.apache.commons.lang3.tuple.Pair;
+
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.Objects;
 import java.util.stream.Collectors;
-import org.apache.commons.lang3.tuple.Pair;
 
 /**
  * A call to one or more {@link NativeCFG}s under analysis.

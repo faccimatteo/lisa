@@ -1,7 +1,5 @@
 package it.unive.lisa.cron.numeric;
 
-import static it.unive.lisa.LiSAFactory.getDefaultFor;
-
 import it.unive.lisa.AnalysisSetupException;
 import it.unive.lisa.AnalysisTestExecutor;
 import it.unive.lisa.LiSAConfiguration;
@@ -14,6 +12,8 @@ import it.unive.lisa.analysis.numeric.Parity;
 import it.unive.lisa.analysis.numeric.Sign;
 import it.unive.lisa.analysis.types.InferredTypes;
 import org.junit.Test;
+
+import static it.unive.lisa.LiSAFactory.getDefaultFor;
 
 public class NumericAnalysesTest extends AnalysisTestExecutor {
 

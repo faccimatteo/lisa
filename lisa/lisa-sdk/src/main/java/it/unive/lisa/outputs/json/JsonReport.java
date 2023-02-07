@@ -6,14 +6,11 @@ import it.unive.lisa.LiSAConfiguration;
 import it.unive.lisa.LiSAReport;
 import it.unive.lisa.LiSARunInfo;
 import it.unive.lisa.checks.warnings.Warning;
+
 import java.io.IOException;
 import java.io.Reader;
 import java.io.Writer;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Map;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.*;
 
 /**
  * A report of an executed analysis that can be dumped in json format, and that

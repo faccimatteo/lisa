@@ -3,6 +3,7 @@ package it.unive.lisa.analysis.lattices;
 import it.unive.lisa.analysis.BaseLattice;
 import it.unive.lisa.analysis.Lattice;
 import it.unive.lisa.analysis.SemanticException;
+
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;

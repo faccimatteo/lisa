@@ -1,10 +1,5 @@
 package it.unive.lisa.program.cfg;
 
-import static it.unive.lisa.util.collections.CollectionUtilities.collect;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
-
 import it.unive.lisa.TestLanguageFeatures;
 import it.unive.lisa.TestTypeSystem;
 import it.unive.lisa.program.ClassUnit;
@@ -25,11 +20,15 @@ import it.unive.lisa.program.cfg.statement.call.Call;
 import it.unive.lisa.program.cfg.statement.call.Call.CallType;
 import it.unive.lisa.program.cfg.statement.call.OpenCall;
 import it.unive.lisa.program.cfg.statement.call.UnresolvedCall;
+import org.junit.Test;
+
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Iterator;
-import org.junit.Test;
+
+import static it.unive.lisa.util.collections.CollectionUtilities.collect;
+import static org.junit.Assert.*;
 
 public class ConditionalsExtractionTest {
 

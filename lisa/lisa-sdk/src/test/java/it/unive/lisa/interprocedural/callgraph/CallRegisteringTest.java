@@ -1,9 +1,5 @@
 package it.unive.lisa.interprocedural.callgraph;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
-
 import it.unive.lisa.TestLanguageFeatures;
 import it.unive.lisa.TestTypeSystem;
 import it.unive.lisa.analysis.symbols.SymbolAliasing;
@@ -22,9 +18,12 @@ import it.unive.lisa.program.cfg.statement.call.Call;
 import it.unive.lisa.program.cfg.statement.call.Call.CallType;
 import it.unive.lisa.program.cfg.statement.call.UnresolvedCall;
 import it.unive.lisa.type.Type;
+import org.junit.Test;
+
 import java.util.Collection;
 import java.util.Set;
-import org.junit.Test;
+
+import static org.junit.Assert.*;
 
 public class CallRegisteringTest {
 

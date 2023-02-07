@@ -1,8 +1,5 @@
 package it.unive.lisa.analysis;
 
-import static it.unive.lisa.util.collections.CollectionUtilities.collect;
-import static org.junit.Assert.assertTrue;
-
 import it.unive.lisa.analysis.heap.HeapSemanticOperation.HeapReplacement;
 import it.unive.lisa.analysis.lattices.ExpressionSet;
 import it.unive.lisa.analysis.representation.DomainRepresentation;
@@ -16,14 +13,13 @@ import it.unive.lisa.symbolic.value.ValueExpression;
 import it.unive.lisa.symbolic.value.Variable;
 import it.unive.lisa.type.Untyped;
 import it.unive.lisa.util.collections.CollectionsDiffBuilder;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Comparator;
-import java.util.HashSet;
-import java.util.List;
-import java.util.function.Predicate;
 import org.junit.Test;
+
+import java.util.*;
+import java.util.function.Predicate;
+
+import static it.unive.lisa.util.collections.CollectionUtilities.collect;
+import static org.junit.Assert.assertTrue;
 
 public class SubstitutionTest {
 

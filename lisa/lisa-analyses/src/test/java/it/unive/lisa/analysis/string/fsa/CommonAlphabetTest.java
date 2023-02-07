@@ -1,11 +1,12 @@
 package it.unive.lisa.analysis.string.fsa;
 
-import static org.junit.Assert.assertEquals;
+import org.junit.Test;
 
 import java.util.Collections;
 import java.util.SortedSet;
 import java.util.TreeSet;
-import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
 
 public class CommonAlphabetTest {
 

@@ -5,6 +5,7 @@ import it.unive.lisa.symbolic.value.operator.ArithmeticOperator;
 import it.unive.lisa.type.NumericType;
 import it.unive.lisa.type.Type;
 import it.unive.lisa.type.TypeSystem;
+
 import java.util.Collections;
 import java.util.Set;
 import java.util.stream.Collectors;

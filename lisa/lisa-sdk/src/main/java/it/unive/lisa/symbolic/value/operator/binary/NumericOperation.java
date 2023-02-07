@@ -3,6 +3,7 @@ package it.unive.lisa.symbolic.value.operator.binary;
 import it.unive.lisa.type.NumericType;
 import it.unive.lisa.type.Type;
 import it.unive.lisa.type.TypeSystem;
+
 import java.util.Collections;
 import java.util.Set;
 

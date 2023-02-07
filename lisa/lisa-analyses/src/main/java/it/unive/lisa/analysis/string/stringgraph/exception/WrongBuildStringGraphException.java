@@ -6,8 +6,8 @@ package it.unive.lisa.analysis.string.stringgraph.exception;
 public class WrongBuildStringGraphException extends RuntimeException{
 
     /**
-     * Constructor
-     * @param message cause of bad string graph
+     * {@link WrongBuildStringGraphException}'s constructor.
+     * @param message cause of bad string graph.
      */
     public WrongBuildStringGraphException(String message) {
         super(message);

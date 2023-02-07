@@ -1,15 +1,10 @@
 package it.unive.lisa.util.collections;
 
-import java.lang.reflect.Array;
-import java.util.ArrayDeque;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Comparator;
-import java.util.Deque;
-import java.util.List;
 import org.apache.commons.lang3.tuple.ImmutablePair;
 import org.apache.commons.lang3.tuple.Pair;
+
+import java.lang.reflect.Array;
+import java.util.*;
 
 /**
  * An utility class that can compute the difference between two collections

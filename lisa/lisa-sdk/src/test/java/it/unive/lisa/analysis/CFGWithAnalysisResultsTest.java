@@ -1,13 +1,6 @@
 package it.unive.lisa.analysis;
 
-import static org.junit.Assert.assertEquals;
-
-import it.unive.lisa.TestAbstractState;
-import it.unive.lisa.TestHeapDomain;
-import it.unive.lisa.TestLanguageFeatures;
-import it.unive.lisa.TestTypeDomain;
-import it.unive.lisa.TestTypeSystem;
-import it.unive.lisa.TestValueDomain;
+import it.unive.lisa.*;
 import it.unive.lisa.analysis.lattices.ExpressionSet;
 import it.unive.lisa.analysis.symbols.SymbolAliasing;
 import it.unive.lisa.program.ClassUnit;
@@ -19,8 +12,11 @@ import it.unive.lisa.program.cfg.statement.Statement;
 import it.unive.lisa.program.cfg.statement.VariableRef;
 import it.unive.lisa.program.cfg.statement.call.Call.CallType;
 import it.unive.lisa.program.cfg.statement.call.OpenCall;
-import java.util.Map;
 import org.junit.Test;
+
+import java.util.Map;
+
+import static org.junit.Assert.assertEquals;
 
 public class CFGWithAnalysisResultsTest {
 

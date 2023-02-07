@@ -1,47 +1,16 @@
 package it.unive.lisa.imp;
 
-import static it.unive.lisa.imp.Antlr4Util.getCol;
-import static it.unive.lisa.imp.Antlr4Util.getLine;
-
 import it.unive.lisa.imp.antlr.IMPLexer;
 import it.unive.lisa.imp.antlr.IMPParser;
-import it.unive.lisa.imp.antlr.IMPParser.ClassUnitContext;
-import it.unive.lisa.imp.antlr.IMPParser.ConstructorDeclarationContext;
-import it.unive.lisa.imp.antlr.IMPParser.FieldDeclarationContext;
-import it.unive.lisa.imp.antlr.IMPParser.FileContext;
-import it.unive.lisa.imp.antlr.IMPParser.FormalContext;
-import it.unive.lisa.imp.antlr.IMPParser.FormalsContext;
-import it.unive.lisa.imp.antlr.IMPParser.InterfaceUnitContext;
-import it.unive.lisa.imp.antlr.IMPParser.MethodDeclarationContext;
-import it.unive.lisa.imp.antlr.IMPParser.SignatureDeclarationContext;
-import it.unive.lisa.imp.antlr.IMPParser.UnitContext;
-import it.unive.lisa.imp.antlr.IMPParser.UnitNameContext;
+import it.unive.lisa.imp.antlr.IMPParser.*;
 import it.unive.lisa.imp.antlr.IMPParserBaseVisitor;
-import it.unive.lisa.imp.constructs.StringContains;
-import it.unive.lisa.imp.constructs.StringEndsWith;
-import it.unive.lisa.imp.constructs.StringEquals;
-import it.unive.lisa.imp.constructs.StringIndexOf;
-import it.unive.lisa.imp.constructs.StringLength;
-import it.unive.lisa.imp.constructs.StringReplace;
-import it.unive.lisa.imp.constructs.StringStartsWith;
-import it.unive.lisa.imp.constructs.StringSubstring;
+import it.unive.lisa.imp.constructs.*;
 import it.unive.lisa.imp.types.ArrayType;
 import it.unive.lisa.imp.types.ClassType;
 import it.unive.lisa.imp.types.IMPTypeSystem;
 import it.unive.lisa.imp.types.InterfaceType;
-import it.unive.lisa.program.AbstractClassUnit;
-import it.unive.lisa.program.ClassUnit;
-import it.unive.lisa.program.CompilationUnit;
-import it.unive.lisa.program.Global;
-import it.unive.lisa.program.InterfaceUnit;
-import it.unive.lisa.program.Program;
-import it.unive.lisa.program.SourceCodeLocation;
-import it.unive.lisa.program.Unit;
-import it.unive.lisa.program.cfg.AbstractCodeMember;
-import it.unive.lisa.program.cfg.CFG;
-import it.unive.lisa.program.cfg.CodeMember;
-import it.unive.lisa.program.cfg.CodeMemberDescriptor;
-import it.unive.lisa.program.cfg.Parameter;
+import it.unive.lisa.program.*;
+import it.unive.lisa.program.cfg.*;
 import it.unive.lisa.program.cfg.statement.Statement;
 import it.unive.lisa.program.type.BoolType;
 import it.unive.lisa.program.type.Float32Type;
@@ -49,16 +18,6 @@ import it.unive.lisa.program.type.Int32Type;
 import it.unive.lisa.program.type.StringType;
 import it.unive.lisa.type.ReferenceType;
 import it.unive.lisa.type.Untyped;
-import java.io.ByteArrayInputStream;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
-import java.nio.charset.StandardCharsets;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
 import org.antlr.v4.runtime.BailErrorStrategy;
 import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
@@ -67,6 +26,16 @@ import org.antlr.v4.runtime.atn.PredictionMode;
 import org.apache.commons.lang3.tuple.Pair;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
+import java.io.*;
+import java.nio.charset.StandardCharsets;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
+
+import static it.unive.lisa.imp.Antlr4Util.getCol;
+import static it.unive.lisa.imp.Antlr4Util.getLine;
 
 /**
  * An {@link IMPParserBaseVisitor} that will parse the IMP code building a

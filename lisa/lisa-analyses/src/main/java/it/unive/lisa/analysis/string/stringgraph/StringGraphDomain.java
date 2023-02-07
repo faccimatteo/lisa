@@ -21,15 +21,15 @@ import java.util.Objects;
 import static it.unive.lisa.analysis.string.stringgraph.StringGraph.checkPartialOrder;
 
 /**
- * StringGraphDomain: abstract domain used to represent strings
+ * StringGraphDomain: abstract domain used to represent strings.
  */
 public class StringGraphDomain extends BaseNonRelationalValueDomain<StringGraphDomain> {
 
     private final StringGraph stringGraph;
 
     /**
-     * Constructor that build a string graph domain from a {@code StringGraph}
-     * @param stringGraph string graph needed to build {@code StringGraphDomain}
+     * Constructor that build a string graph domain from a {@code StringGraph}.
+     * @param stringGraph string graph needed to build {@code StringGraphDomain}.
      */
     public StringGraphDomain(StringGraph stringGraph) {
         this.stringGraph = stringGraph;
@@ -161,6 +161,10 @@ public class StringGraphDomain extends BaseNonRelationalValueDomain<StringGraphD
         return true;
     }
 
+    /**
+     * Get associated {@link StringGraph} from the {@link StringGraphDomain}.
+     * @return domain associated string graph.
+     */
     public StringGraph getStringGraph() {
         return stringGraph;
     }

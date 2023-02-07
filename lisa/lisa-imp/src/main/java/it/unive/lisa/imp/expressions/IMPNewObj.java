@@ -23,8 +23,9 @@ import it.unive.lisa.symbolic.value.Identifier;
 import it.unive.lisa.type.ReferenceType;
 import it.unive.lisa.type.Type;
 import it.unive.lisa.type.UnitType;
-import java.util.Collections;
 import org.apache.commons.lang3.ArrayUtils;
+
+import java.util.Collections;
 
 /**
  * An expression modeling the object allocation and initialization operation

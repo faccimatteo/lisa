@@ -1,9 +1,10 @@
 package it.unive.lisa.outputs;
 
-import java.io.IOException;
-import java.io.Writer;
 import org.graphstream.graph.Graph;
 import org.graphstream.graph.implementations.MultiGraph;
+
+import java.io.IOException;
+import java.io.Writer;
 
 /**
  * A graph instance that decorates a graphstream {@link Graph}, offering

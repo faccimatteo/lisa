@@ -24,6 +24,7 @@ import it.unive.lisa.symbolic.value.Variable;
 import it.unive.lisa.type.Type;
 import it.unive.lisa.type.TypeSystem;
 import it.unive.lisa.type.Untyped;
+
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;

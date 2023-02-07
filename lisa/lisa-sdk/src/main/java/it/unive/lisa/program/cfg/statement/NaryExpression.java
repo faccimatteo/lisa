@@ -18,9 +18,10 @@ import it.unive.lisa.symbolic.SymbolicExpression;
 import it.unive.lisa.type.Type;
 import it.unive.lisa.type.Untyped;
 import it.unive.lisa.util.datastructures.graph.GraphVisitor;
+import org.apache.commons.lang3.StringUtils;
+
 import java.util.Arrays;
 import java.util.Objects;
-import org.apache.commons.lang3.StringUtils;
 
 /**
  * A generic expression with {@code n} sub-expressions.

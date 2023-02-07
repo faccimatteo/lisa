@@ -1,10 +1,7 @@
 package it.unive.lisa;
 
-import it.unive.lisa.type.BooleanType;
-import it.unive.lisa.type.NumericType;
-import it.unive.lisa.type.StringType;
-import it.unive.lisa.type.Type;
-import it.unive.lisa.type.TypeSystem;
+import it.unive.lisa.type.*;
+
 import java.util.Set;
 
 public class TestTypeSystem extends TypeSystem {

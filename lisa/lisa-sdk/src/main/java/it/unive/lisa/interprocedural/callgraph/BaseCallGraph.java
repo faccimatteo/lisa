@@ -1,43 +1,23 @@
 package it.unive.lisa.interprocedural.callgraph;
 
-import it.unive.lisa.analysis.symbols.Aliases;
-import it.unive.lisa.analysis.symbols.NameSymbol;
-import it.unive.lisa.analysis.symbols.QualifiedNameSymbol;
-import it.unive.lisa.analysis.symbols.QualifierSymbol;
-import it.unive.lisa.analysis.symbols.SymbolAliasing;
+import it.unive.lisa.analysis.symbols.*;
 import it.unive.lisa.program.Application;
 import it.unive.lisa.program.CompilationUnit;
-import it.unive.lisa.program.cfg.AbstractCodeMember;
-import it.unive.lisa.program.cfg.CFG;
-import it.unive.lisa.program.cfg.CodeMember;
-import it.unive.lisa.program.cfg.CodeMemberDescriptor;
-import it.unive.lisa.program.cfg.NativeCFG;
+import it.unive.lisa.program.cfg.*;
 import it.unive.lisa.program.cfg.statement.Expression;
 import it.unive.lisa.program.cfg.statement.VariableRef;
-import it.unive.lisa.program.cfg.statement.call.CFGCall;
-import it.unive.lisa.program.cfg.statement.call.Call;
+import it.unive.lisa.program.cfg.statement.call.*;
 import it.unive.lisa.program.cfg.statement.call.Call.CallType;
-import it.unive.lisa.program.cfg.statement.call.MultiCall;
-import it.unive.lisa.program.cfg.statement.call.NativeCall;
-import it.unive.lisa.program.cfg.statement.call.OpenCall;
-import it.unive.lisa.program.cfg.statement.call.ResolvedCall;
-import it.unive.lisa.program.cfg.statement.call.TruncatedParamsCall;
-import it.unive.lisa.program.cfg.statement.call.UnresolvedCall;
 import it.unive.lisa.program.language.hierarchytraversal.HierarcyTraversalStrategy;
 import it.unive.lisa.program.language.resolution.ParameterMatchingStrategy;
 import it.unive.lisa.type.Type;
 import it.unive.lisa.util.datastructures.graph.BaseGraph;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.IdentityHashMap;
-import java.util.Map;
-import java.util.Set;
-import java.util.stream.Collectors;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
+import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * An instance of {@link CallGraph} that provides the basic mechanism to resolve

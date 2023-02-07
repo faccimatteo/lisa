@@ -1,14 +1,15 @@
 package it.unive.lisa.analysis.string.fsa;
 
-import static org.junit.Assert.assertEquals;
-
 import it.unive.lisa.analysis.SemanticDomain;
 import it.unive.lisa.analysis.SemanticException;
 import it.unive.lisa.symbolic.value.operator.binary.StringContains;
+import org.junit.Test;
+
 import java.util.Collections;
 import java.util.SortedSet;
 import java.util.TreeSet;
-import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
 
 public class ContainsTest {
 

@@ -1,7 +1,8 @@
 package it.unive.lisa.program.annotations.values;
 
-import java.util.Arrays;
 import org.apache.commons.lang3.StringUtils;
+
+import java.util.Arrays;
 
 /**
  * An array annotation value.

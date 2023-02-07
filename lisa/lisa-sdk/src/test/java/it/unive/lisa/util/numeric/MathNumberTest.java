@@ -1,15 +1,10 @@
 package it.unive.lisa.util.numeric;
 
-import static it.unive.lisa.util.numeric.MathNumber.MINUS_INFINITY;
-import static it.unive.lisa.util.numeric.MathNumber.MINUS_ONE;
-import static it.unive.lisa.util.numeric.MathNumber.NaN;
-import static it.unive.lisa.util.numeric.MathNumber.ONE;
-import static it.unive.lisa.util.numeric.MathNumber.PLUS_INFINITY;
-import static it.unive.lisa.util.numeric.MathNumber.ZERO;
+import org.junit.Test;
+
+import static it.unive.lisa.util.numeric.MathNumber.*;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
-
-import org.junit.Test;
 
 public class MathNumberTest {
 

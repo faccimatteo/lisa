@@ -13,13 +13,8 @@ import it.unive.lisa.util.collections.workset.WorkingSet;
 import it.unive.lisa.util.datastructures.graph.GraphVisitor;
 import it.unive.lisa.util.datastructures.graph.algorithms.Dominators;
 import it.unive.lisa.util.datastructures.graph.code.NodeList;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.Map;
-import java.util.Set;
+
+import java.util.*;
 
 /**
  * An extractor of {@link ControlFlowStructure}s from {@link CFG}s. It uses

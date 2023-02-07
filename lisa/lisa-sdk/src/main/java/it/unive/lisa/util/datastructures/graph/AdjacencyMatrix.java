@@ -1,20 +1,12 @@
 package it.unive.lisa.util.datastructures.graph;
 
 import it.unive.lisa.program.ProgramValidationException;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.IdentityHashMap;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.Map;
+import org.apache.commons.lang3.StringUtils;
+
+import java.util.*;
 import java.util.Map.Entry;
-import java.util.Queue;
-import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
-import org.apache.commons.lang3.StringUtils;
 
 /**
  * An adjacency matrix for a graph that has {@link Node}s as nodes and

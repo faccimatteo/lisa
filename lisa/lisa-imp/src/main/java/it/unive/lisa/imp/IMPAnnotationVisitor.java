@@ -1,24 +1,12 @@
 package it.unive.lisa.imp;
 
-import it.unive.lisa.imp.antlr.IMPParser.AnnotationContext;
-import it.unive.lisa.imp.antlr.IMPParser.AnnotationMemberContext;
-import it.unive.lisa.imp.antlr.IMPParser.AnnotationMembersContext;
-import it.unive.lisa.imp.antlr.IMPParser.AnnotationValueContext;
-import it.unive.lisa.imp.antlr.IMPParser.AnnotationsContext;
-import it.unive.lisa.imp.antlr.IMPParser.ArrayAnnotationValueContext;
-import it.unive.lisa.imp.antlr.IMPParser.BasicAnnotationValueContext;
+import it.unive.lisa.imp.antlr.IMPParser.*;
 import it.unive.lisa.imp.antlr.IMPParserBaseVisitor;
 import it.unive.lisa.program.annotations.Annotation;
 import it.unive.lisa.program.annotations.AnnotationMember;
 import it.unive.lisa.program.annotations.Annotations;
-import it.unive.lisa.program.annotations.values.AnnotationValue;
-import it.unive.lisa.program.annotations.values.ArrayAnnotationValue;
-import it.unive.lisa.program.annotations.values.BasicAnnotationValue;
-import it.unive.lisa.program.annotations.values.BoolAnnotationValue;
-import it.unive.lisa.program.annotations.values.CompilationUnitAnnotationValue;
-import it.unive.lisa.program.annotations.values.FloatAnnotationValue;
-import it.unive.lisa.program.annotations.values.IntAnnotationValue;
-import it.unive.lisa.program.annotations.values.StringAnnotationValue;
+import it.unive.lisa.program.annotations.values.*;
+
 import java.util.ArrayList;
 import java.util.List;
 

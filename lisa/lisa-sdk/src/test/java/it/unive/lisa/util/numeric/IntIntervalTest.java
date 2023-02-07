@@ -1,9 +1,10 @@
 package it.unive.lisa.util.numeric;
 
-import static org.junit.Assert.assertEquals;
+import org.junit.Test;
 
 import java.util.function.BiFunction;
-import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
 
 public class IntIntervalTest {
 

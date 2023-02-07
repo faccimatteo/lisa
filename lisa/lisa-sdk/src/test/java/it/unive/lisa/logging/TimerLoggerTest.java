@@ -1,11 +1,11 @@
 package it.unive.lisa.logging;
 
-import static org.junit.Assert.assertEquals;
-
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
 
 public class TimerLoggerTest {
 	private static final Logger logger = LogManager.getLogger(TimerLoggerTest.class);

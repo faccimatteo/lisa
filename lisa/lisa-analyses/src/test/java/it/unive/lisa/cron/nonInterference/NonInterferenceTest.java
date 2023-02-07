@@ -21,8 +21,9 @@ import it.unive.lisa.program.cfg.CFG;
 import it.unive.lisa.program.cfg.edge.Edge;
 import it.unive.lisa.program.cfg.statement.Assignment;
 import it.unive.lisa.program.cfg.statement.Statement;
-import java.util.Collection;
 import org.junit.Test;
+
+import java.util.Collection;
 
 public class NonInterferenceTest extends AnalysisTestExecutor {
 

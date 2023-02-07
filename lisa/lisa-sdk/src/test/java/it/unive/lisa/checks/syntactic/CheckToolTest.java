@@ -1,22 +1,10 @@
 package it.unive.lisa.checks.syntactic;
 
-import static org.junit.Assert.assertTrue;
-
 import it.unive.lisa.LiSAConfiguration;
 import it.unive.lisa.TestLanguageFeatures;
 import it.unive.lisa.TestTypeSystem;
-import it.unive.lisa.checks.warnings.CFGDescriptorWarning;
-import it.unive.lisa.checks.warnings.CFGWarning;
-import it.unive.lisa.checks.warnings.ExpressionWarning;
-import it.unive.lisa.checks.warnings.GlobalWarning;
-import it.unive.lisa.checks.warnings.StatementWarning;
-import it.unive.lisa.checks.warnings.UnitWarning;
-import it.unive.lisa.checks.warnings.Warning;
-import it.unive.lisa.program.ClassUnit;
-import it.unive.lisa.program.Global;
-import it.unive.lisa.program.Program;
-import it.unive.lisa.program.SourceCodeLocation;
-import it.unive.lisa.program.Unit;
+import it.unive.lisa.checks.warnings.*;
+import it.unive.lisa.program.*;
 import it.unive.lisa.program.cfg.CFG;
 import it.unive.lisa.program.cfg.CodeMemberDescriptor;
 import it.unive.lisa.program.cfg.statement.Expression;
@@ -24,10 +12,13 @@ import it.unive.lisa.program.cfg.statement.NoOp;
 import it.unive.lisa.program.cfg.statement.Statement;
 import it.unive.lisa.program.cfg.statement.VariableRef;
 import it.unive.lisa.util.file.FileManager;
-import java.util.Collection;
-import java.util.HashSet;
 import org.apache.commons.collections4.CollectionUtils;
 import org.junit.Test;
+
+import java.util.Collection;
+import java.util.HashSet;
+
+import static org.junit.Assert.assertTrue;
 
 public class CheckToolTest {
 

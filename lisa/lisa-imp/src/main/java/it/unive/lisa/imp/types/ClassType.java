@@ -2,20 +2,11 @@ package it.unive.lisa.imp.types;
 
 import it.unive.lisa.program.CompilationUnit;
 import it.unive.lisa.program.Unit;
-import it.unive.lisa.type.InMemoryType;
-import it.unive.lisa.type.PointerType;
-import it.unive.lisa.type.Type;
-import it.unive.lisa.type.TypeSystem;
-import it.unive.lisa.type.UnitType;
-import it.unive.lisa.type.Untyped;
+import it.unive.lisa.type.*;
 import it.unive.lisa.util.collections.workset.FIFOWorkingSet;
 import it.unive.lisa.util.collections.workset.WorkingSet;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Objects;
-import java.util.Set;
+
+import java.util.*;
 
 /**
  * A type representing an IMP class defined in an IMP program. ClassTypes are

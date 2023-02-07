@@ -1,23 +1,8 @@
 package it.unive.lisa.analysis.string.fsa;
 
-import it.unive.lisa.analysis.string.fsa.regex.Atom;
-import it.unive.lisa.analysis.string.fsa.regex.Comp;
-import it.unive.lisa.analysis.string.fsa.regex.EmptySet;
-import it.unive.lisa.analysis.string.fsa.regex.Or;
-import it.unive.lisa.analysis.string.fsa.regex.RegularExpression;
-import it.unive.lisa.analysis.string.fsa.regex.Star;
-import java.util.AbstractMap;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
-import java.util.Set;
-import java.util.SortedSet;
-import java.util.TreeSet;
+import it.unive.lisa.analysis.string.fsa.regex.*;
+
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**

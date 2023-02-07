@@ -1,9 +1,9 @@
 package it.unive.lisa.analysis.string;
 
-import static org.junit.Assert.*;
-
 import it.unive.lisa.analysis.SemanticException;
 import org.junit.Test;
+
+import static org.junit.Assert.*;
 
 public class PrefixTest {
 
