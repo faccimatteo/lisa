@@ -1,7 +1,6 @@
 package it.unive.lisa.analysis.symbols;
 
 import it.unive.lisa.analysis.lattices.FunctionalLattice;
-
 import java.util.Map;
 
 /**

@@ -4,7 +4,6 @@ import it.unive.lisa.program.annotations.Annotation;
 import it.unive.lisa.program.annotations.Annotations;
 import it.unive.lisa.program.cfg.*;
 import it.unive.lisa.program.language.validation.ProgramValidationLogic;
-
 import java.util.*;
 import java.util.function.Predicate;
 

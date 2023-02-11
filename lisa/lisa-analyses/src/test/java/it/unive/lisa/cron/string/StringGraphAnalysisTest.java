@@ -1,5 +1,7 @@
 package it.unive.lisa.cron.string;
 
+import static it.unive.lisa.LiSAFactory.getDefaultFor;
+
 import it.unive.lisa.AnalysisSetupException;
 import it.unive.lisa.AnalysisTestExecutor;
 import it.unive.lisa.LiSAConfiguration;
@@ -11,17 +13,16 @@ import it.unive.lisa.analysis.string.stringgraph.StringGraphDomain;
 import it.unive.lisa.analysis.types.InferredTypes;
 import org.junit.Test;
 
-import static it.unive.lisa.LiSAFactory.getDefaultFor;
-
 public class StringGraphAnalysisTest extends AnalysisTestExecutor {
 
-    @Test
-    public void testFSA() throws AnalysisSetupException {
-        LiSAConfiguration conf = new LiSAConfiguration();
-        conf.serializeResults = true;
-        conf.abstractState = getDefaultFor(AbstractState.class, getDefaultFor(HeapDomain.class), new StringGraphDomain(new StringGraph("fabolousstring")),
-                new TypeEnvironment<>(new InferredTypes()));
-        perform("stringgraph", "program.imp", conf);
-    }
+	@Test
+	public void testFSA() throws AnalysisSetupException {
+		LiSAConfiguration conf = new LiSAConfiguration();
+		conf.serializeResults = true;
+		conf.abstractState = getDefaultFor(AbstractState.class, getDefaultFor(HeapDomain.class),
+				new StringGraphDomain(new StringGraph("fabolousstring")),
+				new TypeEnvironment<>(new InferredTypes()));
+		perform("stringgraph", "program.imp", conf);
+	}
 
 }

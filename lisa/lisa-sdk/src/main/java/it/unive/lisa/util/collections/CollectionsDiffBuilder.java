@@ -1,10 +1,9 @@
 package it.unive.lisa.util.collections;
 
-import org.apache.commons.lang3.tuple.ImmutablePair;
-import org.apache.commons.lang3.tuple.Pair;
-
 import java.lang.reflect.Array;
 import java.util.*;
+import org.apache.commons.lang3.tuple.ImmutablePair;
+import org.apache.commons.lang3.tuple.Pair;
 
 /**
  * An utility class that can compute the difference between two collections

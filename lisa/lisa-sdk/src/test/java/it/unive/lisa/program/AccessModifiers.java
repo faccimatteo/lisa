@@ -1,17 +1,16 @@
 package it.unive.lisa.program;
 
+import static org.junit.Assert.fail;
+
 import it.unive.lisa.symbolic.value.Operator;
 import it.unive.lisa.type.Type;
-import org.junit.Test;
-import org.reflections.Reflections;
-import org.reflections.scanners.SubTypesScanner;
-
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Modifier;
 import java.util.HashSet;
 import java.util.Set;
-
-import static org.junit.Assert.fail;
+import org.junit.Test;
+import org.reflections.Reflections;
+import org.reflections.scanners.SubTypesScanner;
 
 public class AccessModifiers {
 

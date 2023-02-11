@@ -1,17 +1,16 @@
 package it.unive.lisa.util.datastructures.graph.code;
 
+import static org.apache.commons.collections4.CollectionUtils.isEqualCollection;
+import static org.junit.Assert.*;
+
 import it.unive.lisa.util.datastructures.graph.Edge;
 import it.unive.lisa.util.datastructures.graph.code.TestCodeGraph.TestCodeEdge;
 import it.unive.lisa.util.datastructures.graph.code.TestCodeGraph.TestCodeNode;
-import org.apache.commons.collections4.SetUtils;
-import org.junit.Test;
-
 import java.util.*;
 import java.util.Map.Entry;
 import java.util.stream.Collectors;
-
-import static org.apache.commons.collections4.CollectionUtils.isEqualCollection;
-import static org.junit.Assert.*;
+import org.apache.commons.collections4.SetUtils;
+import org.junit.Test;
 
 public class NodeListTest {
 

@@ -1,13 +1,12 @@
 package it.unive.lisa.util.collections.externalSet;
 
-import org.apache.commons.lang3.tuple.Pair;
-import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import java.util.*;
 import java.util.function.BiFunction;
-
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import org.apache.commons.lang3.tuple.Pair;
+import org.junit.Test;
 
 @SuppressWarnings("unchecked")
 public class BitExternalSetTest {

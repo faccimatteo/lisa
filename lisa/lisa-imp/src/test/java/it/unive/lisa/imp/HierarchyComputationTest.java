@@ -1,12 +1,12 @@
 package it.unive.lisa.imp;
 
+import static org.junit.Assert.*;
+
 import it.unive.lisa.program.*;
 import it.unive.lisa.program.cfg.AbstractCodeMember;
 import it.unive.lisa.program.cfg.CFG;
 import it.unive.lisa.program.cfg.CodeMember;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 public class HierarchyComputationTest {
 

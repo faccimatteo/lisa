@@ -1,10 +1,10 @@
 package it.unive.lisa.util.numeric;
 
-import org.junit.Test;
-
 import static it.unive.lisa.util.numeric.MathNumber.*;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
+
+import org.junit.Test;
 
 public class MathNumberTest {
 

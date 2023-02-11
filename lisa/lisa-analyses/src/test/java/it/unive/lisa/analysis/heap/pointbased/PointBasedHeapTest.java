@@ -1,5 +1,7 @@
 package it.unive.lisa.analysis.heap.pointbased;
 
+import static org.junit.Assert.*;
+
 import it.unive.lisa.analysis.ScopeToken;
 import it.unive.lisa.analysis.SemanticException;
 import it.unive.lisa.analysis.lattices.ExpressionSet;
@@ -15,12 +17,9 @@ import it.unive.lisa.symbolic.value.*;
 import it.unive.lisa.symbolic.value.operator.binary.NumericNonOverflowingAdd;
 import it.unive.lisa.type.Type;
 import it.unive.lisa.type.Untyped;
-import org.junit.Test;
-
 import java.util.Collections;
 import java.util.HashSet;
-
-import static org.junit.Assert.*;
+import org.junit.Test;
 
 public class PointBasedHeapTest {
 	private final Type untyped = Untyped.INSTANCE;

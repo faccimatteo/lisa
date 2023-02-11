@@ -1,7 +1,6 @@
 package it.unive.lisa.analysis.string.fsa;
 
 import it.unive.lisa.analysis.string.fsa.regex.*;
-
 import java.util.*;
 import java.util.stream.Collectors;
 

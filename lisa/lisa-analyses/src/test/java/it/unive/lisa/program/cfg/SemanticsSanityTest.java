@@ -1,5 +1,7 @@
 package it.unive.lisa.program.cfg;
 
+import static org.junit.Assert.fail;
+
 import it.unive.lisa.analysis.*;
 import it.unive.lisa.analysis.SemanticDomain.Satisfiability;
 import it.unive.lisa.analysis.combination.ValueCartesianProduct;
@@ -52,17 +54,14 @@ import it.unive.lisa.symbolic.value.*;
 import it.unive.lisa.type.Type;
 import it.unive.lisa.type.Untyped;
 import it.unive.lisa.util.datastructures.graph.GraphVisitor;
-import org.junit.Before;
-import org.junit.Test;
-import org.reflections.Reflections;
-import org.reflections.scanners.SubTypesScanner;
-
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Modifier;
 import java.util.*;
 import java.util.Map.Entry;
-
-import static org.junit.Assert.fail;
+import org.junit.Before;
+import org.junit.Test;
+import org.reflections.Reflections;
+import org.reflections.scanners.SubTypesScanner;
 
 public class SemanticsSanityTest {
 

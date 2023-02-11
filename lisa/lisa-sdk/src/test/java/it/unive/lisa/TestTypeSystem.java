@@ -1,7 +1,6 @@
 package it.unive.lisa;
 
 import it.unive.lisa.type.*;
-
 import java.util.Set;
 
 public class TestTypeSystem extends TypeSystem {

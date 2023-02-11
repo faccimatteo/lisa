@@ -6,7 +6,6 @@ import it.unive.lisa.program.annotations.Annotation;
 import it.unive.lisa.program.annotations.AnnotationMember;
 import it.unive.lisa.program.annotations.Annotations;
 import it.unive.lisa.program.annotations.values.*;
-
 import java.util.ArrayList;
 import java.util.List;
 

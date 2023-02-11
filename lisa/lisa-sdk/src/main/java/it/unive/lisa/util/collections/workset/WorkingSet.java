@@ -1,7 +1,6 @@
 package it.unive.lisa.util.collections.workset;
 
 import it.unive.lisa.AnalysisSetupException;
-
 import java.lang.reflect.InvocationTargetException;
 
 /**

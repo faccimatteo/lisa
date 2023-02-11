@@ -1,5 +1,8 @@
 package it.unive.lisa.imp;
 
+import static it.unive.lisa.imp.Antlr4Util.getCol;
+import static it.unive.lisa.imp.Antlr4Util.getLine;
+
 import it.unive.lisa.imp.antlr.IMPParser.*;
 import it.unive.lisa.imp.antlr.IMPParserBaseVisitor;
 import it.unive.lisa.imp.constructs.*;
@@ -33,16 +36,12 @@ import it.unive.lisa.program.type.Int32Type;
 import it.unive.lisa.type.Type;
 import it.unive.lisa.type.Untyped;
 import it.unive.lisa.util.datastructures.graph.code.NodeList;
+import java.util.*;
+import java.util.Map.Entry;
 import org.antlr.v4.runtime.tree.TerminalNode;
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.tuple.Pair;
 import org.apache.commons.lang3.tuple.Triple;
-
-import java.util.*;
-import java.util.Map.Entry;
-
-import static it.unive.lisa.imp.Antlr4Util.getCol;
-import static it.unive.lisa.imp.Antlr4Util.getLine;
 
 /**
  * An {@link IMPParserBaseVisitor} that will parse the code of an IMP method or

@@ -4,7 +4,6 @@ import it.unive.lisa.symbolic.value.operator.LogicalOperator;
 import it.unive.lisa.type.BooleanType;
 import it.unive.lisa.type.Type;
 import it.unive.lisa.type.TypeSystem;
-
 import java.util.Collections;
 import java.util.Set;
 

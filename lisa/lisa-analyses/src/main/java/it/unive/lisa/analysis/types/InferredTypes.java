@@ -1,5 +1,7 @@
 package it.unive.lisa.analysis.types;
 
+import static org.apache.commons.collections4.CollectionUtils.intersection;
+
 import it.unive.lisa.FallbackImplementation;
 import it.unive.lisa.analysis.Lattice;
 import it.unive.lisa.analysis.SemanticDomain.Satisfiability;
@@ -21,14 +23,11 @@ import it.unive.lisa.type.NullType;
 import it.unive.lisa.type.Type;
 import it.unive.lisa.type.TypeSystem;
 import it.unive.lisa.type.TypeTokenType;
-
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.stream.Collectors;
-
-import static org.apache.commons.collections4.CollectionUtils.intersection;
 
 /**
  * An {@link InferredValue} holding a set of {@link Type}s, representing the

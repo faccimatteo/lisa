@@ -14,7 +14,6 @@ import it.unive.lisa.symbolic.heap.*;
 import it.unive.lisa.symbolic.value.*;
 import it.unive.lisa.type.ReferenceType;
 import it.unive.lisa.type.Type;
-
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;

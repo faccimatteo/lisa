@@ -12,12 +12,11 @@ import it.unive.lisa.program.language.hierarchytraversal.HierarcyTraversalStrate
 import it.unive.lisa.program.language.resolution.ParameterMatchingStrategy;
 import it.unive.lisa.type.Type;
 import it.unive.lisa.util.datastructures.graph.BaseGraph;
+import java.util.*;
+import java.util.stream.Collectors;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
-import java.util.*;
-import java.util.stream.Collectors;
 
 /**
  * An instance of {@link CallGraph} that provides the basic mechanism to resolve

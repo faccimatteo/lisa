@@ -1,13 +1,12 @@
 package it.unive.lisa.program.annotations;
 
 import it.unive.lisa.program.annotations.matcher.AnnotationMatcher;
-import org.apache.commons.lang3.StringUtils;
-
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 import java.util.stream.Collectors;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * A collection of annotations.

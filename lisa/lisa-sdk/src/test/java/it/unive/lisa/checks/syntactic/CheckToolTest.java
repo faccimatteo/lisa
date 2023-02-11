@@ -1,5 +1,7 @@
 package it.unive.lisa.checks.syntactic;
 
+import static org.junit.Assert.assertTrue;
+
 import it.unive.lisa.LiSAConfiguration;
 import it.unive.lisa.TestLanguageFeatures;
 import it.unive.lisa.TestTypeSystem;
@@ -12,13 +14,10 @@ import it.unive.lisa.program.cfg.statement.NoOp;
 import it.unive.lisa.program.cfg.statement.Statement;
 import it.unive.lisa.program.cfg.statement.VariableRef;
 import it.unive.lisa.util.file.FileManager;
-import org.apache.commons.collections4.CollectionUtils;
-import org.junit.Test;
-
 import java.util.Collection;
 import java.util.HashSet;
-
-import static org.junit.Assert.assertTrue;
+import org.apache.commons.collections4.CollectionUtils;
+import org.junit.Test;
 
 public class CheckToolTest {
 

@@ -1,5 +1,7 @@
 package it.unive.lisa.analysis.numeric;
 
+import static org.junit.Assert.*;
+
 import it.unive.lisa.analysis.SemanticDomain.Satisfiability;
 import it.unive.lisa.analysis.SemanticException;
 import it.unive.lisa.analysis.nonrelational.value.ValueEnvironment;
@@ -13,11 +15,8 @@ import it.unive.lisa.symbolic.value.Variable;
 import it.unive.lisa.symbolic.value.operator.binary.*;
 import it.unive.lisa.symbolic.value.operator.unary.NumericNegation;
 import it.unive.lisa.util.numeric.IntInterval;
-import org.junit.Test;
-
 import java.util.Random;
-
-import static org.junit.Assert.*;
+import org.junit.Test;
 
 public class IntervalTest {
 

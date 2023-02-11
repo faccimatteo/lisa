@@ -1,12 +1,11 @@
 package it.unive.lisa.analysis.heap;
 
 import it.unive.lisa.symbolic.value.Identifier;
-import org.apache.commons.lang3.StringUtils;
-
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * A semantic operation on the heap state of the program, that provides a

@@ -5,14 +5,13 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 import it.unive.lisa.outputs.DotGraph;
 import it.unive.lisa.outputs.GraphmlGraph;
 import it.unive.lisa.outputs.HtmlGraph;
-import org.apache.commons.lang3.tuple.Pair;
-
 import java.io.IOException;
 import java.io.Reader;
 import java.io.Writer;
 import java.util.*;
 import java.util.Map.Entry;
 import java.util.stream.Collectors;
+import org.apache.commons.lang3.tuple.Pair;
 
 /**
  * A graph that can be serialized. This graph contains {@link SerializableNode}s

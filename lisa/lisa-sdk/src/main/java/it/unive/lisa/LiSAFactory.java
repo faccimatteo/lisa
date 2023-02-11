@@ -17,14 +17,13 @@ import it.unive.lisa.analysis.value.TypeDomain;
 import it.unive.lisa.analysis.value.ValueDomain;
 import it.unive.lisa.interprocedural.InterproceduralAnalysis;
 import it.unive.lisa.interprocedural.callgraph.CallGraph;
+import java.lang.reflect.*;
+import java.util.*;
+import java.util.Map.Entry;
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.reflections.Reflections;
 import org.reflections.scanners.SubTypesScanner;
-
-import java.lang.reflect.*;
-import java.util.*;
-import java.util.Map.Entry;
 
 /**
  * An utility class for instantiating analysis components, that is, modular

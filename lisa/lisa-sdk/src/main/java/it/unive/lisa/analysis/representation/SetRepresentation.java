@@ -2,10 +2,9 @@ package it.unive.lisa.analysis.representation;
 
 import it.unive.lisa.outputs.serializableGraph.SerializableArray;
 import it.unive.lisa.outputs.serializableGraph.SerializableValue;
-import org.apache.commons.lang3.StringUtils;
-
 import java.util.*;
 import java.util.function.Function;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * A {@link DomainRepresentation} in the form of a set of values.

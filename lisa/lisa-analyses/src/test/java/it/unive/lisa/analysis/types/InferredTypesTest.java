@@ -1,5 +1,7 @@
 package it.unive.lisa.analysis.types;
 
+import static org.junit.Assert.*;
+
 import it.unive.lisa.analysis.SemanticDomain.Satisfiability;
 import it.unive.lisa.analysis.SemanticException;
 import it.unive.lisa.imp.IMPFeatures;
@@ -18,14 +20,11 @@ import it.unive.lisa.symbolic.value.operator.ternary.StringSubstring;
 import it.unive.lisa.symbolic.value.operator.ternary.TernaryOperator;
 import it.unive.lisa.symbolic.value.operator.unary.*;
 import it.unive.lisa.type.*;
+import java.util.*;
+import java.util.Map.Entry;
 import org.apache.commons.collections4.SetUtils;
 import org.apache.commons.lang3.tuple.Pair;
 import org.junit.Test;
-
-import java.util.*;
-import java.util.Map.Entry;
-
-import static org.junit.Assert.*;
 
 public class InferredTypesTest {
 

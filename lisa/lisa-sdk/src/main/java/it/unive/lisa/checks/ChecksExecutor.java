@@ -1,12 +1,12 @@
 package it.unive.lisa.checks;
 
+import static it.unive.lisa.logging.IterationLogger.iterate;
+
 import it.unive.lisa.program.*;
 import it.unive.lisa.program.cfg.CFG;
 import it.unive.lisa.program.cfg.CodeMember;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
-import static it.unive.lisa.logging.IterationLogger.iterate;
 
 /**
  * Utility class that handles the execution of {@link Check}s.

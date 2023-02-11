@@ -7,11 +7,10 @@ import it.unive.lisa.analysis.heap.HeapDomain;
 import it.unive.lisa.analysis.lattices.FunctionalLattice;
 import it.unive.lisa.analysis.value.TypeDomain;
 import it.unive.lisa.analysis.value.ValueDomain;
-import org.apache.commons.lang3.tuple.Pair;
-
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Map;
+import org.apache.commons.lang3.tuple.Pair;
 
 /**
  * A {@link FunctionalLattice} from {@link ContextSensitivityToken}s to

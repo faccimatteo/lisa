@@ -1,10 +1,9 @@
 package it.unive.lisa.util.collections.workset;
 
-import org.junit.Test;
+import static org.junit.Assert.*;
 
 import java.util.*;
-
-import static org.junit.Assert.*;
+import org.junit.Test;
 
 public class WorksetTest {
 

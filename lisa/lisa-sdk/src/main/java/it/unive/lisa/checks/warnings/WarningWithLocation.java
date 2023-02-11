@@ -1,7 +1,6 @@
 package it.unive.lisa.checks.warnings;
 
 import it.unive.lisa.program.cfg.CodeLocation;
-
 import java.util.Objects;
 
 /**

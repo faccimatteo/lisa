@@ -1,12 +1,11 @@
 package it.unive.lisa.analysis.string;
 
-import it.unive.lisa.analysis.SemanticException;
-import org.junit.Test;
+import static org.junit.Assert.*;
 
+import it.unive.lisa.analysis.SemanticException;
 import java.util.Set;
 import java.util.TreeSet;
-
-import static org.junit.Assert.*;
+import org.junit.Test;
 
 public class CharInclusionTest {
 

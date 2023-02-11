@@ -1,12 +1,6 @@
 package it.unive.lisa.outputs;
 
 import it.unive.lisa.outputs.serializableGraph.*;
-import org.graphstream.graph.Edge;
-import org.graphstream.graph.Graph;
-import org.graphstream.graph.Node;
-import org.graphstream.graph.implementations.MultiGraph;
-import org.graphstream.stream.file.FileSinkGraphML;
-
 import java.io.IOException;
 import java.io.StringWriter;
 import java.io.Writer;
@@ -16,6 +10,11 @@ import java.util.Map.Entry;
 import java.util.TreeMap;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Function;
+import org.graphstream.graph.Edge;
+import org.graphstream.graph.Graph;
+import org.graphstream.graph.Node;
+import org.graphstream.graph.implementations.MultiGraph;
+import org.graphstream.stream.file.FileSinkGraphML;
 
 /**
  * A graph that can be dumped into compound GraphML format.

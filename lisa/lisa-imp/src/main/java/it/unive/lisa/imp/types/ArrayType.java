@@ -3,9 +3,8 @@ package it.unive.lisa.imp.types;
 import it.unive.lisa.type.Type;
 import it.unive.lisa.type.TypeSystem;
 import it.unive.lisa.type.Untyped;
-import org.apache.commons.lang3.tuple.Pair;
-
 import java.util.*;
+import org.apache.commons.lang3.tuple.Pair;
 
 /**
  * A type representing an IMP array defined in an IMP program. ArrayTypes are

@@ -11,9 +11,8 @@ import it.unive.lisa.program.cfg.CFG;
 import it.unive.lisa.program.cfg.edge.Edge;
 import it.unive.lisa.program.cfg.statement.Statement;
 import it.unive.lisa.program.cfg.statement.VariableRef;
-import org.junit.Test;
-
 import java.io.IOException;
+import org.junit.Test;
 
 public class ChecksExecutorTest extends AnalysisTestExecutor {
 

@@ -1,11 +1,10 @@
 package it.unive.lisa.util.collections.externalSet;
 
-import org.junit.Test;
+import static org.junit.Assert.*;
 
 import java.util.HashSet;
 import java.util.Set;
-
-import static org.junit.Assert.*;
+import org.junit.Test;
 
 public class ExternalSetTest {
 

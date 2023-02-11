@@ -1,8 +1,7 @@
 package it.unive.lisa.util.collections.externalSet;
 
-import org.apache.commons.lang3.StringUtils;
-
 import java.util.*;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * An {@link ExternalSet} where the indexes of the elements included in the set

@@ -1,6 +1,11 @@
 package it.unive.lisa.outputs;
 
 import it.unive.lisa.outputs.serializableGraph.*;
+import java.io.*;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.function.Function;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.text.StringEscapeUtils;
 import org.graphstream.graph.Edge;
@@ -9,12 +14,6 @@ import org.graphstream.graph.Node;
 import org.graphstream.graph.implementations.MultiGraph;
 import org.graphstream.stream.file.FileSinkDOT;
 import org.graphstream.stream.file.FileSourceDOT;
-
-import java.io.*;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.function.Function;
 
 /**
  * A graph that can be dumped into Dot format.

@@ -6,7 +6,6 @@ import it.unive.lisa.LiSAConfiguration;
 import it.unive.lisa.LiSAReport;
 import it.unive.lisa.LiSARunInfo;
 import it.unive.lisa.checks.warnings.Warning;
-
 import java.io.IOException;
 import java.io.Reader;
 import java.io.Writer;

@@ -1,5 +1,7 @@
 package it.unive.lisa;
 
+import static org.junit.Assert.assertTrue;
+
 import it.unive.lisa.LiSAFactory.ConfigurableComponent;
 import it.unive.lisa.analysis.CFGWithAnalysisResults;
 import it.unive.lisa.analysis.Lattice;
@@ -64,6 +66,9 @@ import it.unive.lisa.util.datastructures.graph.AdjacencyMatrix.NodeEdges;
 import it.unive.lisa.util.datastructures.graph.code.NodeList;
 import it.unive.lisa.util.numeric.IntInterval;
 import it.unive.lisa.util.numeric.MathNumber;
+import java.lang.reflect.Modifier;
+import java.util.*;
+import java.util.function.Consumer;
 import nl.jqno.equalsverifier.EqualsVerifier;
 import nl.jqno.equalsverifier.Warning;
 import nl.jqno.equalsverifier.api.SingleTypeEqualsVerifierApi;
@@ -75,12 +80,6 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.reflections.Reflections;
 import org.reflections.scanners.SubTypesScanner;
-
-import java.lang.reflect.Modifier;
-import java.util.*;
-import java.util.function.Consumer;
-
-import static org.junit.Assert.assertTrue;
 
 //This test must live here since this project has all the others in its classpath, and reflections can detect all classes
 public class EqualityContractVerificationTest {
@@ -118,8 +117,10 @@ public class EqualityContractVerificationTest {
 	private static final Set<Type> s2 = Collections.singleton(Int32Type.INSTANCE);
 
 	private static final Collection<Class<?>> tested = new HashSet<>();
-	private static final StringGraph sg1 = new StringGraph(StringGraph.NodeType.OR, List.of(new StringGraph("good"), new StringGraph("bad")), null);
-	private static final StringGraph sg2 = new StringGraph(StringGraph.NodeType.OR, List.of(new StringGraph("good"), new StringGraph("bad")), null);
+	private static final StringGraph sg1 = new StringGraph(StringGraph.NodeType.OR,
+			List.of(new StringGraph("good"), new StringGraph("bad")), null);
+	private static final StringGraph sg2 = new StringGraph(StringGraph.NodeType.OR,
+			List.of(new StringGraph("good"), new StringGraph("bad")), null);
 	private static final StringGraphDomain sgd1 = new StringGraphDomain(sg1);
 	private static final StringGraphDomain sgd2 = new StringGraphDomain(sg2);
 

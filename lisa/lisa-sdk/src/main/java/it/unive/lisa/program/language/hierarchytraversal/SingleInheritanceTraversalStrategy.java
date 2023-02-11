@@ -2,7 +2,6 @@ package it.unive.lisa.program.language.hierarchytraversal;
 
 import it.unive.lisa.program.CompilationUnit;
 import it.unive.lisa.program.cfg.statement.Statement;
-
 import java.util.*;
 
 /**

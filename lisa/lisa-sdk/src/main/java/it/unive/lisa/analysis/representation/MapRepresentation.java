@@ -2,7 +2,6 @@ package it.unive.lisa.analysis.representation;
 
 import it.unive.lisa.outputs.serializableGraph.SerializableObject;
 import it.unive.lisa.outputs.serializableGraph.SerializableValue;
-
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.SortedMap;

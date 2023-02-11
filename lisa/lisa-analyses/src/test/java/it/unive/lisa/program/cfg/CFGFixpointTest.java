@@ -1,5 +1,8 @@
 package it.unive.lisa.program.cfg;
 
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+
 import it.unive.lisa.analysis.AnalysisState;
 import it.unive.lisa.analysis.CFGWithAnalysisResults;
 import it.unive.lisa.analysis.SimpleAbstractState;
@@ -27,9 +30,6 @@ import it.unive.lisa.program.cfg.statement.call.OpenCall;
 import it.unive.lisa.util.collections.workset.FIFOWorkingSet;
 import it.unive.lisa.util.datastructures.graph.algorithms.FixpointException;
 import org.junit.Test;
-
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
 
 public class CFGFixpointTest {
 

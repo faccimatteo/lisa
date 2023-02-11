@@ -1,14 +1,13 @@
 package it.unive.lisa.logging;
 
-import org.junit.Test;
+import static it.unive.lisa.logging.TimeFormat.*;
+import static org.junit.Assert.assertEquals;
 
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Function;
 import java.util.stream.LongStream;
-
-import static it.unive.lisa.logging.TimeFormat.*;
-import static org.junit.Assert.assertEquals;
+import org.junit.Test;
 
 public class TimeFormatTest {
 

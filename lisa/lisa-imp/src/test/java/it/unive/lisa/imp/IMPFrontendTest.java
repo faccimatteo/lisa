@@ -1,8 +1,8 @@
 package it.unive.lisa.imp;
 
-import org.junit.Test;
-
 import static org.junit.Assert.fail;
+
+import org.junit.Test;
 
 public class IMPFrontendTest {
 

@@ -3,7 +3,6 @@ package it.unive.lisa.util.datastructures.graph;
 import it.unive.lisa.outputs.serializableGraph.SerializableGraph;
 import it.unive.lisa.outputs.serializableGraph.SerializableNodeDescription;
 import it.unive.lisa.outputs.serializableGraph.SerializableValue;
-
 import java.util.Collection;
 import java.util.function.Function;
 

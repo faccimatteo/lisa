@@ -1,5 +1,8 @@
 package it.unive.lisa.imp;
 
+import static it.unive.lisa.imp.Antlr4Util.getCol;
+import static it.unive.lisa.imp.Antlr4Util.getLine;
+
 import it.unive.lisa.imp.antlr.IMPLexer;
 import it.unive.lisa.imp.antlr.IMPParser;
 import it.unive.lisa.imp.antlr.IMPParser.*;
@@ -18,6 +21,12 @@ import it.unive.lisa.program.type.Int32Type;
 import it.unive.lisa.program.type.StringType;
 import it.unive.lisa.type.ReferenceType;
 import it.unive.lisa.type.Untyped;
+import java.io.*;
+import java.nio.charset.StandardCharsets;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
 import org.antlr.v4.runtime.BailErrorStrategy;
 import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
@@ -26,16 +35,6 @@ import org.antlr.v4.runtime.atn.PredictionMode;
 import org.apache.commons.lang3.tuple.Pair;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
-import java.io.*;
-import java.nio.charset.StandardCharsets;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
-
-import static it.unive.lisa.imp.Antlr4Util.getCol;
-import static it.unive.lisa.imp.Antlr4Util.getLine;
 
 /**
  * An {@link IMPParserBaseVisitor} that will parse the IMP code building a

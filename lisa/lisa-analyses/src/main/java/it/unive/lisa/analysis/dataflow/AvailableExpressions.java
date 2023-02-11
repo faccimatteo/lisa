@@ -6,7 +6,6 @@ import it.unive.lisa.analysis.representation.DomainRepresentation;
 import it.unive.lisa.analysis.representation.StringRepresentation;
 import it.unive.lisa.program.cfg.ProgramPoint;
 import it.unive.lisa.symbolic.value.*;
-
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;

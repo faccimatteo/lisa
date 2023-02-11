@@ -10,7 +10,6 @@ import it.unive.lisa.symbolic.SymbolicExpression;
 import it.unive.lisa.symbolic.value.*;
 import it.unive.lisa.symbolic.value.operator.*;
 import it.unive.lisa.symbolic.value.operator.unary.NumericNegation;
-
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;

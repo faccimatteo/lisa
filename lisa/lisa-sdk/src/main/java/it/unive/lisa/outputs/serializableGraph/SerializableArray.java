@@ -1,9 +1,8 @@
 package it.unive.lisa.outputs.serializableGraph;
 
 import it.unive.lisa.util.collections.CollectionsDiffBuilder;
-import org.apache.commons.lang3.StringUtils;
-
 import java.util.*;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * An array of serializable values, represented through a list.

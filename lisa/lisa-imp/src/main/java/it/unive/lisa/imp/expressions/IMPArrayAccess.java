@@ -18,7 +18,6 @@ import it.unive.lisa.symbolic.heap.HeapDereference;
 import it.unive.lisa.type.ArrayType;
 import it.unive.lisa.type.Type;
 import it.unive.lisa.type.TypeSystem;
-
 import java.util.HashSet;
 import java.util.Set;
 

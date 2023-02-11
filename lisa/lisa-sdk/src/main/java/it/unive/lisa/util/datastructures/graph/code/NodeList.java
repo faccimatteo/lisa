@@ -3,13 +3,12 @@ package it.unive.lisa.util.datastructures.graph.code;
 import it.unive.lisa.program.ProgramValidationException;
 import it.unive.lisa.util.datastructures.graph.Edge;
 import it.unive.lisa.util.datastructures.graph.Node;
-import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.lang3.tuple.Pair;
-
 import java.util.*;
 import java.util.Map.Entry;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.tuple.Pair;
 
 /**
  * A list of nodes of a {@link CodeGraph}, together with the edges connecting

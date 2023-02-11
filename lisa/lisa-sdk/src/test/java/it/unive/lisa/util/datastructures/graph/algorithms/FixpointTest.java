@@ -1,19 +1,18 @@
 package it.unive.lisa.util.datastructures.graph.algorithms;
 
+import static org.junit.Assert.*;
+
 import it.unive.lisa.util.collections.workset.FIFOWorkingSet;
 import it.unive.lisa.util.datastructures.graph.TestGraph;
 import it.unive.lisa.util.datastructures.graph.TestGraph.TestEdge;
 import it.unive.lisa.util.datastructures.graph.TestGraph.TestNode;
 import it.unive.lisa.util.datastructures.graph.algorithms.Fixpoint.FixpointImplementation;
-import org.apache.commons.collections4.SetUtils;
-import org.junit.Test;
-
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
-
-import static org.junit.Assert.*;
+import org.apache.commons.collections4.SetUtils;
+import org.junit.Test;
 
 public class FixpointTest {
 
