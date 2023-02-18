@@ -212,6 +212,9 @@ public class StringGraph {
 	 * Builds a {@link StringGraph} given a string.
 	 * 
 	 * @param stringToRepresent string to represent in the string graph.
+	 * 
+	 * @throws WrongBuildStringGraphException exception is thrown if null string
+	 *                                            is passed
 	 */
 	public StringGraph(String stringToRepresent) {
 
@@ -236,17 +239,25 @@ public class StringGraph {
 		} else {
 			this.label = CONCAT;
 			for (int i = 0; i < stringToRepresent.length(); ++i) {
-				StringGraph son = new StringGraph(SIMPLE, new ArrayList<>(),
-						StringGraph.map(stringToRepresent.charAt(i)));
-				this.addSon(son);
+				try {
+					StringGraph son = new StringGraph(SIMPLE, new ArrayList<>(),
+							StringGraph.map(stringToRepresent.charAt(i)));
+					this.addSon(son);
+				} catch (WrongBuildStringGraphException e) {
+					// If unrecognized char is found in word,
+					// we bound the word to MAX node
+					this.removeAllSons();
+					this.label = MAX;
+					break;
+				}
 			}
 		}
 
 	}
 
 	/**
-	 * Builds a {@link StringGraph} with just a label. <br/>
-	 * This is used to represent a leaf.
+	 * Builds a {@link StringGraph} with just a label. This is used to represent
+	 * a leaf.
 	 * 
 	 * @param label {@link NodeType} label.
 	 */
@@ -279,9 +290,12 @@ public class StringGraph {
 	 * Manage mapping of a single character into a CHARACTER enum value.
 	 * 
 	 * @param c character to map
-	 * 
+	 *
 	 * @return character mapped in CHARACTER enum value if possible, otherwise
 	 *             throw WrongBuildStringGraphException exception
+	 * 
+	 * @throws WrongBuildStringGraphException exception is thrown if character
+	 *                                            not convertible
 	 */
 	public static CHARACTER map(char c) {
 		switch (c) {
@@ -338,7 +352,7 @@ public class StringGraph {
 		case 'z':
 			return CHARACTER.z;
 		default:
-			throw new WrongBuildStringGraphException(c + " is not a valid character.");
+			throw new WrongBuildStringGraphException(c + " is not a recognized character. Will be treated as a MAX node");
 		}
 	}
 
@@ -497,6 +511,8 @@ public class StringGraph {
 	 * Means of Abstract Interpretation".</i>
 	 */
 	protected void compact() {
+
+		// Compact all the sons if they are not fathers of current string graph
 		for (StringGraph s : this.getSons()) {
 			if (!(this.getFathers().contains(s))) {
 				s.compact();
@@ -504,6 +520,7 @@ public class StringGraph {
 		}
 
 		// RULE 1
+		// If string graph has
 		if (this.getLabel() == CONCAT && !nonEmptyDenotation()) {
 			this.setLabel(EMPTY);
 			this.removeAllSons();
@@ -761,20 +778,24 @@ public class StringGraph {
 	 */
 	private boolean nonEmptyDenotation() {
 		boolean result;
+		// Checks that in a CONCAT string graph all its sons have empty denotation.
 		if (this.label == CONCAT && this.getSons().size() > 0) {
 			result = true;
 			for (StringGraph son : this.getSons()) {
 				result = result && son.nonEmptyDenotation();
 			}
 			return result;
-		} else if (this.label == OR) {
+		}
+		// Checks that in OR string graph all its sons have empty denotation.
+		else if (this.label == OR) {
 			result = false;
 			for (StringGraph son : this.getSons()) {
 				result = result || son.nonEmptyDenotation();
 			}
 			return result;
 		}
-		return this.label == SIMPLE || (this.label == CONCAT && this.getSons().isEmpty());
+		// If string graph is SIMPLE or MAX, then it is defined as non-empty denotation.
+		return this.label == SIMPLE || this.label == MAX;
 	}
 
 	/**
@@ -937,7 +958,7 @@ public class StringGraph {
 	 * @param stringGraph     string graph to compare1.
 	 * 
 	 * @return the set of string graphs belonging to {@code stringGraphList}
-	 *             which have the same label as {@param stringGraph}.
+	 *             which have the same label as {@code stringGraph}.
 	 */
 	public static Set<StringGraph> labelEqualitySet(Collection<StringGraph> stringGraphList, StringGraph stringGraph) {
 		Set<StringGraph> result = new HashSet<>();
