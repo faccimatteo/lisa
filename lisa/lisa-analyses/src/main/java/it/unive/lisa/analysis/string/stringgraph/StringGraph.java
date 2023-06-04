@@ -383,7 +383,7 @@ public class StringGraph {
 	 * 
 	 * @param sons list of sons to be removed from all sons.
 	 */
-	public void removeSons(List<StringGraph> sons) {
+	private void removeSons(List<StringGraph> sons) {
 		this.getSons().removeAll(sons);
 
 		for (StringGraph son : sons) {
@@ -544,7 +544,6 @@ public class StringGraph {
 		// RULE 4
 		if (this.getLabel() == OR && this.getSons().isEmpty()) {
 			this.setLabel(EMPTY);
-			this.removeAllSons();
 		}
 
 		// RULE 5
@@ -565,18 +564,20 @@ public class StringGraph {
 		// RULE 6
 		if (this.getLabel() == OR) {
 			ArrayList<StringGraph> sonsToRemove = new ArrayList<>();
+			ArrayList<StringGraph> sonsToAdd = new ArrayList<>();
 			for (StringGraph son : this.getSons()) {
 				if (son.getLabel() == OR && son.getFathers().size() == 1) {
 					sonsToRemove.add(son);
-					this.addAllSons(son.getSons());
+					sonsToAdd.addAll(son.getSons());
 					son.removeAllSons();
 				}
 			}
+			this.addAllSons(sonsToAdd);
 			this.removeSons(sonsToRemove);
 		}
 
 		// RULE 7
-		if (this.getLabel() == OR && this.getSons().size() == 1) {
+ 		if (this.getLabel() == OR && this.getSons().size() == 1) {
 			StringGraph son = this.getSons().get(0);
 			this.setLabel(son.getLabel());
 			this.removeAllSons();
