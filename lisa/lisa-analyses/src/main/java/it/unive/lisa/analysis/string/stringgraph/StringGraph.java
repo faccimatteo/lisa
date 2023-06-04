@@ -469,10 +469,10 @@ public class StringGraph {
 
 	/**
 	 * Set {@link StringGraph} normalized value.
-	 * 
+	 *
 	 * @param normalized normalized/not normalized.
 	 */
-	public void setNormalized(boolean normalized) {
+	private void setNormalized(boolean normalized) {
 		this.normalized = normalized;
 	}
 
@@ -520,7 +520,6 @@ public class StringGraph {
 		}
 
 		// RULE 1
-		// If string graph has
 		if (this.getLabel() == CONCAT && !nonEmptyDenotation()) {
 			this.setLabel(EMPTY);
 			this.removeAllSons();
