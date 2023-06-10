@@ -15,14 +15,17 @@ public class BaseStringGraphTest {
 	public ExpectedException exception = ExpectedException.none();
 	private final List<StringGraph.CHARACTER> availableCharacters;
 
-	private final StringGraph firstSonStringGraph;
-	private final StringGraph secondSonStringGraph;
-	private final StringGraph thirdSonStringGraph;
+	private final StringGraph simpleSon;
+	private final StringGraph concatSon;
+	private final StringGraph maxSon;
+
+	private final StringGraph emptySon;
 
 	public BaseStringGraphTest() {
-		this.firstSonStringGraph = new StringGraph(SIMPLE, new ArrayList<>(), a);
-		this.secondSonStringGraph = new StringGraph(CONCAT, List.of(firstSonStringGraph), null);
-		this.thirdSonStringGraph = new StringGraph(MAX, new ArrayList<>(), null);
+		this.simpleSon = new StringGraph(SIMPLE, new ArrayList<>(), a);
+		this.concatSon = new StringGraph(CONCAT, List.of(simpleSon), null);
+		this.maxSon = new StringGraph(MAX);
+		this.emptySon = new StringGraph(EMPTY);
 
 		this.availableCharacters = new ArrayList<>(
 				List.of(
@@ -62,16 +65,20 @@ public class BaseStringGraphTest {
 		return exception;
 	}
 
-	protected StringGraph getFirstSonStringGraph() {
-		return firstSonStringGraph;
+	protected StringGraph getSimpleSon() {
+		return simpleSon;
 	}
 
-	protected StringGraph getSecondSonStringGraph() {
-		return secondSonStringGraph;
+	protected StringGraph getConcatSon() {
+		return concatSon;
 	}
 
-	protected StringGraph getThirdSonStringGraph() {
-		return thirdSonStringGraph;
+	protected StringGraph getMaxSon() {
+		return maxSon;
+	}
+
+	protected StringGraph getEmptySon() {
+		return emptySon;
 	}
 
 	protected static void assertStringGraph(

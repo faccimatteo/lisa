@@ -97,6 +97,7 @@ public class CompactTest extends BaseStringGraphTest {
         StringGraph sonToBeSubstitute = new StringGraph("hello");
 
         root.addSon(sonToBeSubstitute);
+        sonToBeSubstitute.getFathers().add(root);
         root.compact();
 
         assertEquals(StringGraph.NodeType.CONCAT, root.getLabel());
@@ -111,24 +112,27 @@ public class CompactTest extends BaseStringGraphTest {
     public void whenORSonWithMultipleSeparateFathers_thenChecksFathersAreConnectedTogether() {
         StringGraph firstOr = new StringGraph(StringGraph.NodeType.OR);
         StringGraph secondOr = new StringGraph(StringGraph.NodeType.OR);
+        StringGraph thirdOr = new StringGraph(StringGraph.NodeType.OR);
 
         StringGraph son = new StringGraph(StringGraph.NodeType.OR);
         StringGraph firstGreeting = new StringGraph("ciao");
         StringGraph secondGreeting = new StringGraph("hello");
+        StringGraph thirdGreeting = new StringGraph("salut");
 
         son.addSon(firstGreeting);
         son.addSon(secondGreeting);
 
         firstOr.addSon(son);
         secondOr.addSon(son);
-        son.getFathers().add(firstOr);
-        son.getFathers().add(secondOr);
+        secondOr.addSon(thirdGreeting);
+        thirdOr.addSon(son);
 
-        // TODO: fix rule 7 behavior
         firstOr.compact();
+        secondOr.compact();
 
-        assertEquals(secondOr, firstOr.getSons().get(0));
-        assertEquals(son, secondOr.getSons().get(0));
-        assertTrue(son.getSons().containsAll(List.of(firstGreeting, secondGreeting)));
+        // FirstOr substitute son and thirdOr becomes root
+        assertEquals(1, thirdOr.getSons().size());
+        assertTrue(secondOr.getSons().containsAll(List.of(firstOr,thirdGreeting)));
+        assertTrue(firstOr.getSons().containsAll(List.of(firstGreeting, secondGreeting)));
     }
 }

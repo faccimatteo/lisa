@@ -257,15 +257,17 @@ public class StringGraph {
 
 	/**
 	 * Builds a {@link StringGraph} with just a label. This is used to represent
-	 * a leaf.
+	 * a node labelled with MAX, EMPTY, and OR.
 	 * 
 	 * @param label {@link NodeType} label.
 	 */
 	public StringGraph(NodeType label) {
 		assert (!(label == CONCAT));
+		assert (!(label == SIMPLE));
 		this.label = label;
 		this.sons = new ArrayList<>();
 		this.fathers = new ArrayList<>();
+		this.normalized = true;
 	}
 
 	/**
@@ -578,15 +580,20 @@ public class StringGraph {
 
 		// RULE 7
  		if (this.getLabel() == OR && this.getSons().size() == 1) {
-			StringGraph son = this.getSons().get(0);
+			List<StringGraph> fathers = new ArrayList<>();
+ 			StringGraph son = this.getSons().get(0);
 			this.setLabel(son.getLabel());
 			this.removeAllSons();
 			this.addAllSons(son.getSons());
 			son.removeAllSons();
 			if (son.getFathers().size() > 0) {
 				for (StringGraph father : son.getFathers()) {
-					father.addSon(this);
+					if (!father.equals(this)) {
+						father.addSon(this);
+						fathers.add(father);
+					}
 				}
+				fathers.forEach(father -> removeSon(son));
 				son.removeAllFathers();
 			}
 		}
@@ -602,6 +609,7 @@ public class StringGraph {
 					}
 					son.removeAllFathers();
 					this.addSon(son);
+					son.getFathers().add(this);
 				}
 			}
 		}
@@ -623,14 +631,18 @@ public class StringGraph {
 
 			// RULE 1
 			if (this.getLabel() == CONCAT && this.getSons().size() == 1) {
-				StringGraph s = this.getSons().get(0);
-				this.setLabel(s.getLabel());
+				StringGraph son = this.getSons().get(0);
+				List<StringGraph> fathers = new ArrayList<>(son.getFathers());
+				this.setLabel(son.getLabel());
 				this.removeAllSons();
-				this.addAllSons(s.getSons());
-				for (StringGraph father : s.getFathers()) {
+				this.addAllSons(son.getSons());
+
+				for(StringGraph father: fathers) {
 					father.addSon(this);
-					father.removeSon(s);
+					father.removeSon(son);
 				}
+
+
 			}
 
 			// RULE 2

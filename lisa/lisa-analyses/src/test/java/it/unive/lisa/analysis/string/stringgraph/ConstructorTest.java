@@ -31,7 +31,7 @@ public class ConstructorTest extends BaseStringGraphTest {
 
 	@Test(expected = WrongBuildStringGraphException.class)
 	public void whenSimpleNodeWithSonsIsCreated_thenThrowWrongBuildStringGraphException() {
-		new StringGraph(SIMPLE, List.of(this.getFirstSonStringGraph()), a);
+		new StringGraph(SIMPLE, List.of(this.getSimpleSon()), a);
 	}
 
 	@Test(expected = WrongBuildStringGraphException.class)
@@ -44,25 +44,25 @@ public class ConstructorTest extends BaseStringGraphTest {
 	 */
 	@Test
 	public void whenConcatNodeWithMixedSonsIsCreated_thenChecksForCorrectness() {
-		List<StringGraph> sonsList = List.of(this.getFirstSonStringGraph(), this.getSecondSonStringGraph(), this.getThirdSonStringGraph());
+		List<StringGraph> sonsList = List.of(this.getSimpleSon(), this.getConcatSon(), this.getMaxSon());
 		StringGraph stringGraph = new StringGraph(CONCAT,
 				sonsList,
 				null);
 		assertStringGraph(stringGraph, sonsList, 3, List.of(), 0, CONCAT, false, null);
 
-		assertTrue(this.getFirstSonStringGraph().getFathers().contains(stringGraph));
-		assertTrue(this.getSecondSonStringGraph().getFathers().contains(stringGraph));
-		assertTrue(this.getThirdSonStringGraph().getFathers().contains(stringGraph));
+		assertTrue(this.getSimpleSon().getFathers().contains(stringGraph));
+		assertTrue(this.getConcatSon().getFathers().contains(stringGraph));
+		assertTrue(this.getMaxSon().getFathers().contains(stringGraph));
 
 	}
 
 	@Test
 	public void whenConcatNodeWithOneSonIsCreated_thenChecksForCorrectness() {
 
-		List<StringGraph> sonsList = List.of(this.getThirdSonStringGraph());
+		List<StringGraph> sonsList = List.of(this.getMaxSon());
 		StringGraph stringGraph = new StringGraph(CONCAT, sonsList, null);
 		assertStringGraph(stringGraph, sonsList, 1, List.of(), 0, CONCAT, false, null);
-		assertTrue(this.getThirdSonStringGraph().getFathers().contains(stringGraph));
+		assertTrue(this.getMaxSon().getFathers().contains(stringGraph));
 
 	}
 
@@ -94,7 +94,7 @@ public class ConstructorTest extends BaseStringGraphTest {
 
 	@Test(expected = WrongBuildStringGraphException.class)
 	public void whenConcatNodeWithCharacterIsCreated_thenThrowWrongBuildStringGraphException() {
-		new StringGraph(CONCAT, List.of(this.getFirstSonStringGraph()), a);
+		new StringGraph(CONCAT, List.of(this.getSimpleSon()), a);
 	}
 
 	/**
@@ -111,7 +111,7 @@ public class ConstructorTest extends BaseStringGraphTest {
 	@Test(expected = WrongBuildStringGraphException.class)
 	public void whenMaxNodeWithSonsIsCreated_thenThrowWrongBuildStringGraphException() {
 		new StringGraph(MAX,
-				List.of(this.getFirstSonStringGraph(), this.getSecondSonStringGraph(), this.getThirdSonStringGraph()),
+				List.of(this.getSimpleSon(), this.getConcatSon(), this.getMaxSon()),
 				a);
 	}
 
