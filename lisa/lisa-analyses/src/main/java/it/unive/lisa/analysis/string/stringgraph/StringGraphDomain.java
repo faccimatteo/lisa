@@ -109,7 +109,7 @@ public class StringGraphDomain extends BaseNonRelationalValueDomain<StringGraphD
 	 * @return {@code StringGraphDomain} obtained when no rules can be applied
 	 *             anymore.
 	 */
-	public StringGraphDomain widen(StringGraphDomain other) {
+	private StringGraphDomain widen(StringGraphDomain other) {
 		// other --> gn
 		// this --> go
 		StringGraph gResCI = this.stringGraph.cycleInductionRule(other.stringGraph);

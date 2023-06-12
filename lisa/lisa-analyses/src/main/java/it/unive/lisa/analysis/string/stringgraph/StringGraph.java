@@ -688,7 +688,6 @@ public class StringGraph {
 								father.addSon(previousSibling.get());
 							}
 							currentSibling.get().removeAllFathers();
-							// appliedRule = true;
 						}
 						++pos;
 					} while (pos < this.getSons().size() - 1);
@@ -1331,6 +1330,7 @@ public class StringGraph {
 	@Override
 	public String toString() {
 		StringBuilder stringGraphToRepresent = new StringBuilder();
+
 		switch (this.label) {
 		case MAX:
 			return "MAX";
@@ -1341,14 +1341,18 @@ public class StringGraph {
 		case OR:
 			stringGraphToRepresent.append("OR[");
 			for (StringGraph son : this.getSons()) {
-				stringGraphToRepresent.append(son.toString());
+				stringGraphToRepresent.append(" ");
+				if (!this.getFathers().contains(son)) stringGraphToRepresent.append(son.toString());
+				else stringGraphToRepresent.append("recursive@").append(son.getLabel().toString());
 			}
 			stringGraphToRepresent.append("]");
 			return stringGraphToRepresent.toString();
 		case CONCAT:
 			stringGraphToRepresent.append("CONCAT[");
 			for (StringGraph son : this.getSons()) {
-				stringGraphToRepresent.append(son.toString());
+				stringGraphToRepresent.append(" ");
+				if (!this.getFathers().contains(son)) stringGraphToRepresent.append(son.toString());
+				else stringGraphToRepresent.append("recursive@").append(son.getLabel().toString());
 			}
 			stringGraphToRepresent.append("]");
 			return stringGraphToRepresent.toString();

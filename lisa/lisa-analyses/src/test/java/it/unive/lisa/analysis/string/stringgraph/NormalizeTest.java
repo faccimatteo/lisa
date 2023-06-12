@@ -13,6 +13,8 @@ public class NormalizeTest extends BaseStringGraphTest {
     public void whenSimpleStringGraphIsCreated_thenCheckIsNormalized() {
         assertTrue(this.getSimpleSon().isNormalized());
         StringGraph s = new StringGraph("2");
+
+        s.compact();
         assertTrue(s.isNormalized());
     }
 
@@ -20,6 +22,8 @@ public class NormalizeTest extends BaseStringGraphTest {
     public void whenEmptyStringGraphIsCreated_thenCheckIsNormalized() {
         assertTrue(this.getEmptySon().isNormalized());
         StringGraph s = new StringGraph("");
+
+        s.compact();
         assertTrue(s.isNormalized());
     }
 
@@ -27,6 +31,8 @@ public class NormalizeTest extends BaseStringGraphTest {
     public void whenMaxStringGraphIsCreated_thenCheckIsNormalized() {
         assertTrue(this.getMaxSon().isNormalized());
         StringGraph s = new StringGraph("|");
+
+        s.compact();
         assertTrue(s.isNormalized());
     }
 
@@ -34,6 +40,8 @@ public class NormalizeTest extends BaseStringGraphTest {
     public void whenConcatWithSimpleSon_thenCheckIsNormalized() {
         StringGraph son = new StringGraph(SIMPLE, List.of(), StringGraph.CHARACTER.a);
         StringGraph root = new StringGraph(CONCAT, List.of(son), null);
+
+        root.compact();
         assertTrue(root.isNormalized());
     }
 
@@ -44,6 +52,7 @@ public class NormalizeTest extends BaseStringGraphTest {
         StringGraph firstOr = new StringGraph(OR, List.of(son), null);
         StringGraph root = new StringGraph(CONCAT, List.of(son), null);
 
+        root.compact();
         root.normalize();
 
         assertTrue(root.isNormalized());
@@ -55,6 +64,8 @@ public class NormalizeTest extends BaseStringGraphTest {
     @Test
     public void whenAllSonsAreMAX_thenTurnIntoMAXStringGraph() {
         StringGraph root = new StringGraph(CONCAT, List.of(new StringGraph(MAX), new StringGraph(MAX), new StringGraph(MAX)), null);
+
+        root.compact();
         root.normalize();
 
         assertTrue(root.isNormalized());
@@ -62,16 +73,45 @@ public class NormalizeTest extends BaseStringGraphTest {
         assertTrue(root.getSons().isEmpty());
     }
 
-    // RULE 2
+    // RULE 3
     @Test
-    public void whenNotAllSonsAreMAX_thenRemainTheSame() {
-        StringGraph root = new StringGraph(CONCAT, List.of(new StringGraph(MAX), new StringGraph(MAX), new StringGraph("a")), null);
+    public void whenMultipleConcatSonsWithOneIncomingArc_thenMergeConcatSons() {
+        StringGraph firstSon = new StringGraph("hello");
+        StringGraph secondSon = new StringGraph("world");
+        StringGraph root = new StringGraph(CONCAT, List.of(firstSon, secondSon), null);
+
+        root.compact();
+        root.normalize();
+
+        assertEquals(CONCAT, root.getLabel());
+        StringBuilder rootValue = new StringBuilder();
+
+        root.getSons().forEach(son -> rootValue.append(son.getCharacter().name()));
+
+        assertTrue(root.isNormalized());
+        assertEquals("helloworld", rootValue.toString());
+        assertEquals(10, root.getSons().size());
+        assertTrue(firstSon.getSons().isEmpty());
+        assertTrue(firstSon.getFathers().isEmpty());
+        assertTrue(secondSon.getSons().isEmpty());
+        assertTrue(secondSon.getFathers().isEmpty());
+
+    }
+
+    // RULE 4
+    @Test
+    public void whenConcatRootHasOneConcatNodeWithJustOneFather_thenRemoveTransferConcatSonToFather() {
+        StringGraph firstSon = new StringGraph("supercalifragilistichespiralidoso");
+        StringGraph secondSon = new StringGraph(OR, List.of(new StringGraph("a"), new StringGraph("b"), new StringGraph("c")), null);
+        StringGraph root = new StringGraph(CONCAT, List.of(firstSon, secondSon), null);
+
+        root.compact();
         root.normalize();
 
         assertTrue(root.isNormalized());
-        assertEquals(MAX, root.getLabel());
-        assertTrue(root.getSons().isEmpty());
+        assertEquals(CONCAT, root.getLabel());
+        assertEquals(34, root.getSons().size());
+        assertTrue(firstSon.getSons().isEmpty());
+
     }
-
-
 }
