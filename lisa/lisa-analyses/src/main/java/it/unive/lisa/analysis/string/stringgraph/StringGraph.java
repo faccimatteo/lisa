@@ -364,6 +364,8 @@ public class StringGraph {
 	 * @param son String graph to add as son.
 	 */
 	public void addSon(StringGraph son) {
+		if (son.getLabel() != SIMPLE && this.isNormalized())
+			this.setNormalized(false);
 		if (!this.sons.contains(son))
 			this.getSons().add(son);
 		if (!son.getFathers().contains(this))
@@ -590,7 +592,9 @@ public class StringGraph {
 				for (StringGraph father : son.getFathers()) {
 					if (!father.equals(this)) {
 						father.addSon(this);
-						fathers.add(father);
+						if (!fathers.contains(father)) {
+							fathers.add(father);
+						}
 					}
 				}
 				fathers.forEach(father -> removeSon(son));
@@ -609,7 +613,9 @@ public class StringGraph {
 					}
 					son.removeAllFathers();
 					this.addSon(son);
-					son.getFathers().add(this);
+					if (!son.getFathers().contains(this)) {
+						son.getFathers().add(this);
+					}
 				}
 			}
 		}

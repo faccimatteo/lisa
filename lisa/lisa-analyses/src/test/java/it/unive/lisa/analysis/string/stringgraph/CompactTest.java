@@ -15,9 +15,17 @@ public class CompactTest extends BaseStringGraphTest {
 
         StringGraph s = new StringGraph("fabolousword");
         s.compact();
-        assertTrue(s.getFathers().isEmpty());
-        assertNull(s.getBound());
-        assertEquals(s.getSons().size(), 12);
+
+        assertStringGraph(
+                s,
+                s.getSons(),
+                12,
+                List.of(),
+                0,
+                StringGraph.NodeType.CONCAT,
+                true,
+                null
+        );
 
     }
 
@@ -32,6 +40,17 @@ public class CompactTest extends BaseStringGraphTest {
         root.addSon(new StringGraph(StringGraph.NodeType.EMPTY));
         root.compact();
         root.getSons().forEach(son -> assertNotEquals(son.getLabel(), StringGraph.NodeType.EMPTY));
+
+        assertStringGraph(
+                root,
+                root.getSons(),
+                3,
+                List.of(),
+                0,
+                StringGraph.NodeType.OR,
+                false,
+                null
+        );
     }
 
     @Test
@@ -43,13 +62,35 @@ public class CompactTest extends BaseStringGraphTest {
         root.addSon(root);
         root.compact();
         root.getSons().forEach(son -> assertNotEquals(son, root));
+
+        assertStringGraph(
+                root,
+                root.getSons(),
+                3,
+                List.of(),
+                0,
+                StringGraph.NodeType.OR,
+                false,
+                null
+
+        );
     }
 
     @Test
     public void whenORWithNoNodes_thenChecksEMPTYStringGraph() {
         StringGraph root = new StringGraph(StringGraph.NodeType.OR);
         root.compact();
-        assertEquals(root.getLabel(), StringGraph.NodeType.EMPTY);
+
+        assertStringGraph(
+                root,
+                List.of(),
+                0,
+                List.of(),
+                0,
+                StringGraph.NodeType.EMPTY,
+                true,
+                null
+        );
     }
 
     @Test
@@ -62,6 +103,17 @@ public class CompactTest extends BaseStringGraphTest {
         root.compact();
         assertEquals(root.getLabel(), StringGraph.NodeType.MAX);
         assertTrue(root.getSons().isEmpty());
+
+        assertStringGraph(
+                root,
+                List.of(),
+                0,
+                List.of(),
+                0,
+                StringGraph.NodeType.MAX,
+                false,
+                null
+        );
     }
 
     @Test
@@ -89,6 +141,17 @@ public class CompactTest extends BaseStringGraphTest {
                                 son.equals(bNode)
                 )
         );
+
+        assertStringGraph(
+                root,
+                List.of(word, aNode, bNode),
+                3,
+                List.of(),
+                0,
+                StringGraph.NodeType.OR,
+                false,
+                null
+        );
     }
 
     @Test
@@ -106,6 +169,17 @@ public class CompactTest extends BaseStringGraphTest {
         assertEquals(root.getSons().get(2).getCharacter(), map('l'));
         assertEquals(root.getSons().get(3).getCharacter(), map('l'));
         assertEquals(root.getSons().get(4).getCharacter(), map('o'));
+
+        assertStringGraph(
+                root,
+                root.getSons(),
+                5,
+                List.of(),
+                0,
+                StringGraph.NodeType.CONCAT,
+                false,
+                null
+        );
     }
 
     @Test
@@ -134,5 +208,38 @@ public class CompactTest extends BaseStringGraphTest {
         assertEquals(1, thirdOr.getSons().size());
         assertTrue(secondOr.getSons().containsAll(List.of(firstOr,thirdGreeting)));
         assertTrue(firstOr.getSons().containsAll(List.of(firstGreeting, secondGreeting)));
+
+        assertStringGraph(
+                firstOr,
+                List.of(firstGreeting, secondGreeting),
+                2,
+                List.of(secondOr),
+                1,
+                StringGraph.NodeType.OR,
+                false,
+                null
+        );
+
+        assertStringGraph(
+                secondOr,
+                List.of(thirdGreeting, firstOr),
+                2,
+                List.of(thirdOr),
+                1,
+                StringGraph.NodeType.OR,
+                false,
+                null
+        );
+
+        assertStringGraph(
+                thirdOr,
+                List.of(secondOr),
+                1,
+                List.of(),
+                0,
+                StringGraph.NodeType.OR,
+                false,
+                null
+        );
     }
 }

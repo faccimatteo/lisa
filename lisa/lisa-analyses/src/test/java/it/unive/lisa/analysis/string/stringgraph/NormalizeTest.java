@@ -71,6 +71,17 @@ public class NormalizeTest extends BaseStringGraphTest {
         assertTrue(root.isNormalized());
         assertEquals(MAX, root.getLabel());
         assertTrue(root.getSons().isEmpty());
+
+        assertStringGraph(
+                root,
+                List.of(),
+                0,
+                List.of(),
+                0,
+                MAX,
+                true,
+                null
+        );
     }
 
     // RULE 3
@@ -96,6 +107,17 @@ public class NormalizeTest extends BaseStringGraphTest {
         assertTrue(secondSon.getSons().isEmpty());
         assertTrue(secondSon.getFathers().isEmpty());
 
+        assertStringGraph(
+                root,
+                root.getSons(),
+                10,
+                List.of(),
+                0,
+                CONCAT,
+                true,
+                null
+        );
+
     }
 
     // RULE 4
@@ -112,6 +134,17 @@ public class NormalizeTest extends BaseStringGraphTest {
         assertEquals(CONCAT, root.getLabel());
         assertEquals(34, root.getSons().size());
         assertTrue(firstSon.getSons().isEmpty());
+
+        assertStringGraph(
+                root,
+                root.getSons(),
+                34,
+                List.of(),
+                0,
+                CONCAT,
+                true,
+                null
+        );
 
     }
 }

@@ -140,7 +140,16 @@ public class ConstructorTest extends BaseStringGraphTest {
 
 		String word = "supercalifragilis<tichespiralidoso";
 		StringGraph stringGraph = new StringGraph(word);
-		assertStringGraph(stringGraph, List.of(), 0, List.of(), 0, MAX, true, null);
+		assertStringGraph(
+				stringGraph,
+				List.of(),
+				0,
+				List.of(),
+				0,
+				MAX,
+				true,
+				null
+		);
 
 	}
 
@@ -148,7 +157,16 @@ public class ConstructorTest extends BaseStringGraphTest {
 	public void whenStringGraphFromEmptyStringIsCreated_thenChecksForEmptyLabel() {
 
 		StringGraph stringGraph = new StringGraph("");
-		assertStringGraph(stringGraph, List.of(), 0, List.of(), 0, EMPTY, true, null);
+		assertStringGraph(
+				stringGraph,
+				List.of(),
+				0,
+				List.of(),
+				0,
+				EMPTY,
+				true,
+				null
+		);
 
 	}
 
@@ -163,7 +181,16 @@ public class ConstructorTest extends BaseStringGraphTest {
 
 		for (String s : characters) {
 			stringGraph = new StringGraph(s);
-			assertStringGraph(stringGraph, List.of(), 0, List.of(), 0, SIMPLE, true, null);
+			assertStringGraph(
+					stringGraph,
+					List.of(),
+					0,
+					List.of(),
+					0,
+					SIMPLE,
+					true,
+					null
+			);
 		}
 
 	}
